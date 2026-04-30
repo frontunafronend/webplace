@@ -1,19 +1,11 @@
 <!doctype html>
-<!-- Version: #0030 | Recruiter-optimized portfolio, GitHub added, years added, stronger senior positioning -->
+<!-- Version: #0022 | Premium positioning, no Frontuna mention, AI/internal tooling signal -->
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Amir Cabili — Senior Front-End Engineer and UI Systems Architect based in Tel Aviv. Angular 17+, TypeScript, RxJS, design systems, performance, accessibility, and AI-assisted frontend workflows."/>
-  <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://www.webplace.co.il/"/>
-
-  <meta property="og:title" content="Amir Cabili — Senior Front-End Engineer | Angular | UI Systems"/>
-  <meta property="og:description" content="Senior Front-End Engineer based in Tel Aviv, focused on Angular, TypeScript, RxJS, design systems, performance, accessibility, and AI-assisted delivery."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://www.webplace.co.il/"/>
-
-  <title>Amir Cabili — Senior Front-End Engineer | Angular | UI Systems</title>
+  <meta name="description" content="Amir Cabili — Senior Front-End Developer and UI/UX Architect based in Tel Aviv. Angular, TypeScript, design systems, performance, accessibility, and advanced frontend systems."/>
+  <title>Amir Cabili — Senior Front-End Developer & UI/UX Architect</title>
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
   <link rel="preconnect" href="https://images.unsplash.com"/>
@@ -23,6 +15,7 @@
   <style>
     :root {
       --bg-dark: #0d1117;
+      --bg-dark-soft: #111827;
       --text-dark: #ffffff;
       --muted-dark: #cbd5e1;
       --bg-light: #f8f9fa;
@@ -30,6 +23,7 @@
       --muted-light: #475569;
       --primary: #60a5fa;
       --accent: #a78bfa;
+      --success: #34d399;
       --card-dark: rgba(255,255,255,.06);
       --card-border-dark: rgba(255,255,255,.12);
       --card-light: #ffffff;
@@ -45,10 +39,9 @@
     }
 
     body[data-theme="dark"] {
-      background:
-        radial-gradient(circle at top left, rgba(96,165,250,.12), transparent 35%),
-        radial-gradient(circle at top right, rgba(167,139,250,.12), transparent 30%),
-        var(--bg-dark);
+      background: radial-gradient(circle at top left, rgba(96,165,250,.12), transparent 35%),
+                  radial-gradient(circle at top right, rgba(167,139,250,.12), transparent 30%),
+                  var(--bg-dark);
       color: var(--text-dark);
     }
 
@@ -129,12 +122,6 @@
       color: transparent;
     }
 
-    body[data-theme="light"] .hero h1 {
-      background: linear-gradient(90deg, #0f172a, #2563eb, #7c3aed);
-      -webkit-background-clip: text;
-      color: transparent !important;
-    }
-
     .hero .lead {
       font-size: 1.25rem;
       color: var(--primary);
@@ -145,6 +132,12 @@
       font-size: 1.06rem;
       color: var(--muted-dark);
       max-width: 660px;
+    }
+
+    body[data-theme="light"] .hero h1 {
+      background: linear-gradient(90deg, #0f172a, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      color: transparent !important;
     }
 
     body[data-theme="light"] .hero .subcopy {
@@ -195,7 +188,7 @@
     body[data-theme="light"] .stat span { color: var(--muted-light); }
 
     .section-title {
-      max-width: 780px;
+      max-width: 760px;
       margin: 0 auto 2rem;
       text-align: center;
     }
@@ -282,6 +275,17 @@
       filter: saturate(1.04);
     }
 
+    .exp-title {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      margin-top: .5rem;
+    }
+
+    .exp-title i {
+      color: var(--primary);
+    }
+
     .section-bg {
       background:
         linear-gradient(180deg, rgba(13,17,23,.55), rgba(13,17,23,.8)),
@@ -293,26 +297,6 @@
       background: rgba(13,17,23,.82);
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 28px;
-      padding: 2rem;
-    }
-
-    .exp-role {
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: .15rem;
-    }
-
-    .exp-years {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: .92rem;
-      margin-bottom: .75rem;
-    }
-
-    .cta-panel {
-      background: linear-gradient(135deg, rgba(96,165,250,.2), rgba(167,139,250,.18));
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 24px;
       padding: 2rem;
     }
 
@@ -346,6 +330,13 @@
       filter: invert(1);
     }
 
+    .cta-panel {
+      background: linear-gradient(135deg, rgba(96,165,250,.2), rgba(167,139,250,.18));
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 24px;
+      padding: 2rem;
+    }
+
     footer {
       color: var(--muted-dark);
       font-size: .9rem;
@@ -373,16 +364,6 @@
       color: var(--text-light) !important;
     }
 
-    body[data-theme="light"] .btn-outline-light {
-      color: var(--text-light);
-      border-color: rgba(15,23,42,.25);
-    }
-
-    body[data-theme="light"] .btn-outline-light:hover {
-      color: #fff;
-      background: var(--text-light);
-    }
-
     @media (max-width: 991px) {
       header.navbar .nav-links {
         display: none !important;
@@ -397,35 +378,6 @@
       }
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Amir Cabili",
-    "jobTitle": "Senior Front-End Engineer",
-    "url": "https://www.webplace.co.il",
-    "sameAs": [
-      "https://github.com/amircabili",
-      "https://www.linkedin.com/in/amir-cabili-9275291b/"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Tel Aviv",
-      "addressCountry": "Israel"
-    },
-    "knowsAbout": [
-      "Angular",
-      "TypeScript",
-      "RxJS",
-      "Design Systems",
-      "Accessibility",
-      "Performance Optimization",
-      "SCSS",
-      "Node.js"
-    ]
-  }
-  </script>
 </head>
 
 <body data-theme="dark">
@@ -438,9 +390,8 @@
       <div class="nav-links d-flex align-items-center ms-auto">
         <a href="#about"><i class="bi bi-person"></i> About</a>
         <a href="#systems"><i class="bi bi-cpu"></i> Systems</a>
-        <a href="#projects"><i class="bi bi-kanban"></i> Work</a>
+        <a href="#projects"><i class="bi bi-kanban"></i> Projects</a>
         <a href="#experience"><i class="bi bi-briefcase"></i> Experience</a>
-        <a href="#github"><i class="bi bi-github"></i> GitHub</a>
         <a href="#contact"><i class="bi bi-envelope"></i> Contact</a>
       </div>
 
@@ -457,48 +408,41 @@
           <div class="col-lg-6">
             <div class="eyebrow">
               <i class="bi bi-stars"></i>
-              Available for Senior Frontend / Angular Tech Lead roles
+              Senior Front-End • UI Systems • AI-assisted Delivery
             </div>
 
-            <h1>Senior Front-End Engineer building scalable Angular and UI systems.</h1>
+            <h1>Building fast, elegant frontend systems for serious products.</h1>
 
             <p class="lead mt-3 mb-2">
-              Angular • TypeScript • RxJS • Design Systems • Performance • Accessibility
+              Senior Front-End Developer & UI/UX Architect based in Tel Aviv.
             </p>
 
             <p class="subcopy mb-4">
-              I help product teams build fast, maintainable and accessible frontend systems for cybersecurity,
-              fintech, banking and enterprise SaaS platforms — with strong focus on architecture, UI quality,
-              and AI-assisted delivery workflows.
+              I help product teams ship scalable Angular, TypeScript and design-system driven interfaces —
+              with strong focus on performance, accessibility, maintainability and conversion.
             </p>
 
             <div class="d-flex flex-wrap gap-2">
-              <a href="#experience" class="btn btn-primary btn-lg">
-                <i class="bi bi-briefcase"></i> View Experience
+              <a href="#projects" class="btn btn-primary btn-lg">
+                <i class="bi bi-eye"></i> View Selected Work
               </a>
               <a href="Amir-Cabili---2026.docx" class="btn btn-outline-light btn-lg" download="Amir-Cabili---2026.docx" target="_blank" rel="noopener">
                 <i class="bi bi-download"></i> Download CV
-              </a>
-              <a href="https://github.com/amircabili" class="btn btn-outline-light btn-lg" target="_blank" rel="noopener">
-                <i class="bi bi-github"></i> GitHub
-              </a>
-              <a href="https://www.linkedin.com/in/amir-cabili-9275291b/" class="btn btn-outline-light btn-lg" target="_blank" rel="noopener">
-                <i class="bi bi-linkedin"></i> LinkedIn
               </a>
             </div>
 
             <div class="stat-strip">
               <div class="stat">
-                <strong>12+ yrs</strong>
+                <strong>10+ yrs</strong>
                 <span>Frontend delivery</span>
               </div>
               <div class="stat">
-                <strong>Angular 17+</strong>
-                <span>Modern enterprise UI</span>
+                <strong>30+</strong>
+                <span>Production web apps</span>
               </div>
               <div class="stat">
-                <strong>Tel Aviv</strong>
-                <span>Hybrid / remote / global</span>
+                <strong>90+</strong>
+                <span>Lighthouse targets</span>
               </div>
             </div>
           </div>
@@ -525,25 +469,25 @@
               <h2 class="mb-3"><i class="bi bi-person"></i> About Amir</h2>
 
               <p>
-                I’m a Senior Front-End Engineer and UI/UX Architect with 12+ years of experience building
+                I’m a Senior Front-End Developer and UI/UX Expert with 10+ years of experience building
                 high-impact products for enterprise and startup teams. My work sits at the intersection of
-                Angular engineering, product UX, design systems and delivery execution.
+                engineering, design systems and product execution.
               </p>
 
               <p>
                 I specialize in Angular, TypeScript, RxJS, SCSS, accessibility and performance. I also build
-                internal AI-assisted workflows that help teams accelerate UI delivery, improve consistency,
+                internal AI-driven tooling and workflows that help teams accelerate UI delivery, improve consistency
                 and reduce repetitive implementation work — without exposing product-specific tooling or client IP.
               </p>
 
               <ul class="mb-3">
-                <li><strong>Architecture:</strong> scalable Angular apps, modular UI foundations and reusable component systems.</li>
-                <li><strong>Design systems:</strong> tokens, theming, reusable components and Storybook-ready patterns.</li>
+                <li><strong>Architecture:</strong> scalable Angular apps, microfrontends, modular UI foundations.</li>
+                <li><strong>Design systems:</strong> tokens, theming, reusable components, Storybook-ready patterns.</li>
                 <li><strong>Quality:</strong> WCAG, Lighthouse, Core Web Vitals, typed contracts and maintainable UX flows.</li>
               </ul>
 
               <div class="d-flex flex-wrap gap-2">
-                <span class="badge bg-primary">Angular 17+</span>
+                <span class="badge bg-primary">Angular</span>
                 <span class="badge bg-primary">TypeScript</span>
                 <span class="badge bg-primary">RxJS</span>
                 <span class="badge bg-primary">SCSS</span>
@@ -559,8 +503,8 @@
             <div class="card p-4 h-100">
               <h5 class="mb-3"><i class="bi bi-award"></i> What I’m usually brought in for</h5>
               <ul class="m-0">
-                <li>Turning complex product UI into scalable frontend architecture</li>
-                <li>Building dashboards, portals and data-heavy interfaces</li>
+                <li>Turning messy product UI into scalable frontend architecture</li>
+                <li>Building dashboards, portals and complex data-heavy interfaces</li>
                 <li>Improving performance, loading strategy and real-device UX</li>
                 <li>Creating token-based design systems for multi-team delivery</li>
                 <li>Helping teams ship faster with structured frontend workflows</li>
@@ -746,98 +690,105 @@
       <div class="container">
         <div class="section-title">
           <h2><i class="bi bi-briefcase"></i> Experience</h2>
-          <p>Hands-on delivery across cybersecurity, fintech, banking, enterprise software, digital products and web platforms.</p>
+          <p>Hands-on delivery across fintech, cybersecurity, enterprise software, digital products and web platforms.</p>
         </div>
 
         <div class="row g-4">
-          <div class="col-lg-6">
+          <div class="col-md-4">
             <div class="card h-100">
               <img class="exp-img" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" alt="Modern office meeting room" loading="lazy">
-              <div class="p-4">
-                <div class="exp-role">Hub Security — Senior Front-End Engineer / Tech Lead</div>
-                <div class="exp-years">2024 – Present</div>
-                <ul class="mt-2">
-                  <li>Led Angular 17+ frontend delivery for B2B cybersecurity applications</li>
-                  <li>Designed reusable component patterns and scalable UI foundations</li>
-                  <li>Collaborated with product and backend teams on complex enterprise workflows</li>
-                  <li>Used AI-assisted workflows to accelerate frontend delivery and review</li>
-                </ul>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge bg-primary">Angular 17+</span>
-                  <span class="badge bg-primary">TypeScript</span>
-                  <span class="badge bg-primary">RxJS</span>
-                  <span class="badge bg-primary">SCSS</span>
-                  <span class="badge bg-primary">Leadership</span>
-                </div>
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-diagram-3"></i><h5 class="m-0">Hub Security — Front-End Tech Lead</h5></div>
+                <ul class="mt-2"><li>Angular microfrontends</li><li>RxJS data pipelines</li><li>Mentored 8+ developers</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">TypeScript</span><span class="badge bg-primary">RxJS</span></div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-6">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1529335764857-3f1164d1cb24?q=80&w=1200&auto=format&fit=crop" alt="Product design collaboration" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-bezier2"></i><h5 class="m-0">Hub Security — UI/UX Specialist</h5></div>
+                <ul class="mt-2"><li>Data-driven dashboards</li><li>Usability and accessibility</li><li>Design tokens</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Figma</span><span class="badge bg-primary">Design Tokens</span><span class="badge bg-primary">A11y</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
             <div class="card h-100">
               <img class="exp-img" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Trading and analytics monitors" loading="lazy">
-              <div class="p-4">
-                <div class="exp-role">eToro — Senior Front-End Developer</div>
-                <div class="exp-years">2022 – 2024</div>
-                <ul class="mt-2">
-                  <li>Built and maintained Angular, TypeScript and SCSS-based web platforms</li>
-                  <li>Improved responsive behavior across marketing and product experiences</li>
-                  <li>Supported web-based marketing systems, landing pages and internal tools</li>
-                  <li>Delivered high-visibility UI work in a fast-moving fintech environment</li>
-                </ul>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge bg-primary">Angular</span>
-                  <span class="badge bg-primary">TypeScript</span>
-                  <span class="badge bg-primary">SCSS</span>
-                  <span class="badge bg-primary">Responsive UX</span>
-                  <span class="badge bg-primary">Fintech</span>
-                </div>
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-graph-up"></i><h5 class="m-0">eToro — Front-End Engineer</h5></div>
+                <ul class="mt-2"><li>Real-time dashboards</li><li>Optimized rendering pipelines</li><li>Reduced UI lag</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">NgRx</span><span class="badge bg-primary">WebSockets</span></div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-6">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Developers at laptops" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-universal-access"></i><h5 class="m-0">eToro — Accessibility Specialist</h5></div>
+                <ul class="mt-2"><li>WCAG 2.1 AA audits</li><li>ARIA patterns</li><li>Keyboard navigation</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">WCAG</span><span class="badge bg-primary">ARIA</span><span class="badge bg-primary">Testing</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
             <div class="card h-100">
               <img class="exp-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Team planning at table" loading="lazy">
-              <div class="p-4">
-                <div class="exp-role">Aman Group — Senior Web Client Developer</div>
-                <div class="exp-years">2018 – 2022</div>
-                <ul class="mt-2">
-                  <li>Developed enterprise and banking applications using Angular 1.5 through Angular 12+</li>
-                  <li>Contributed to design, pre-planning and frontend architecture for large systems</li>
-                  <li>Built complex financial and multi-user web applications</li>
-                  <li>Delivered responsive UI for business-critical product flows</li>
-                </ul>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge bg-primary">Angular</span>
-                  <span class="badge bg-primary">Enterprise</span>
-                  <span class="badge bg-primary">Banking</span>
-                  <span class="badge bg-primary">Bootstrap</span>
-                  <span class="badge bg-primary">SCSS</span>
-                </div>
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-layers"></i><h5 class="m-0">Aman Group — UI/UX Specialist</h5></div>
+                <ul class="mt-2"><li>Component library</li><li>UI consistency</li><li>Figma workflows</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">SCSS</span><span class="badge bg-primary">Bootstrap</span><span class="badge bg-primary">UX</span></div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-6">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Workshop with sticky notes" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-shield-check"></i><h5 class="m-0">Aman Group — Accessibility Lead</h5></div>
+                <ul class="mt-2"><li>WCAG AA compliance</li><li>Accessible patterns</li><li>Inclusive reviews</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">WCAG</span><span class="badge bg-primary">Lighthouse</span><span class="badge bg-primary">Screen Readers</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
             <div class="card h-100">
               <img class="exp-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Data visualization on monitors" loading="lazy">
-              <div class="p-4">
-                <div class="exp-role">Matrix Digital — Senior Web Client Developer</div>
-                <div class="exp-years">2016 – 2018</div>
-                <ul class="mt-2">
-                  <li>Built responsive client-side applications using HTML, CSS, Bootstrap/SASS and JavaScript</li>
-                  <li>Modernized legacy web experiences and improved cross-browser behavior</li>
-                  <li>Integrated frontend work with .NET/C# systems and enterprise delivery flows</li>
-                  <li>Supported UX planning and practical implementation decisions</li>
-                </ul>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge bg-primary">JavaScript</span>
-                  <span class="badge bg-primary">SASS</span>
-                  <span class="badge bg-primary">Bootstrap</span>
-                  <span class="badge bg-primary">.NET</span>
-                  <span class="badge bg-primary">Responsive UI</span>
-                </div>
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-cpu"></i><h5 class="m-0">Matrix Digital — Front-End Developer</h5></div>
+                <ul class="mt-2"><li>Modular dashboards</li><li>D3 visualizations</li><li>Faster delivery</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">D3.js</span><span class="badge bg-primary">TypeScript</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" alt="Design studio desk" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-brush"></i><h5 class="m-0">Matrix Digital — UI/UX Expert</h5></div>
+                <ul class="mt-2"><li>Design systems</li><li>Style guides</li><li>Brand consistency</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Design System</span><span class="badge bg-primary">Typography</span><span class="badge bg-primary">Audit</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" alt="Conference hall setup" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-translate"></i><h5 class="m-0">Kenes Group — Web Developer</h5></div>
+                <ul class="mt-2"><li>Event dashboards</li><li>Multilingual UI</li><li>Load optimization</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">HTML</span><span class="badge bg-primary">CSS</span><span class="badge bg-primary">JavaScript</span><span class="badge bg-primary">i18n</span></div>
               </div>
             </div>
           </div>
@@ -845,61 +796,8 @@
 
         <div class="text-center mt-4">
           <p class="small opacity-75 mb-0">
-            Earlier career includes web development, UI design and project delivery across Ness SES, Kenes International and Zarmon Goldman DDB.
+            Additional freelance, open-source and certification experience available in the downloadable CV.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="github" class="section py-5">
-      <div class="container">
-        <div class="section-title">
-          <h2><i class="bi bi-github"></i> GitHub & Public Code</h2>
-          <p>Selected public code and profile links that support my frontend, architecture and full-stack delivery background.</p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-lg-4">
-            <div class="card p-4 h-100">
-              <div class="icon-pill"><i class="bi bi-person-badge"></i></div>
-              <h5>GitHub Profile</h5>
-              <p>
-                My public GitHub includes frontend, Angular, full-stack and UI experiments.
-                I use it as a technical proof layer alongside the CV and portfolio.
-              </p>
-              <a href="https://github.com/amircabili" class="btn btn-outline-light" target="_blank" rel="noopener">
-                <i class="bi bi-github"></i> Open GitHub
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="card p-4 h-100">
-              <div class="icon-pill"><i class="bi bi-code-square"></i></div>
-              <h5>Angular / RxJS Work</h5>
-              <p>
-                Public Angular examples and projects that demonstrate component structure,
-                state handling, TypeScript usage and frontend delivery patterns.
-              </p>
-              <a href="https://github.com/amircabili?tab=repositories" class="btn btn-outline-light" target="_blank" rel="noopener">
-                <i class="bi bi-folder2-open"></i> View Repositories
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="card p-4 h-100">
-              <div class="icon-pill"><i class="bi bi-lightning-charge"></i></div>
-              <h5>Portfolio Source</h5>
-              <p>
-                This website is intentionally simple, fast and static: HTML, CSS, Bootstrap Icons
-                and Vercel hosting for reliable recruiter access.
-              </p>
-              <a href="https://www.webplace.co.il" class="btn btn-outline-light" target="_blank" rel="noopener">
-                <i class="bi bi-globe"></i> Visit Portfolio
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -909,13 +807,13 @@
         <div class="cta-panel mb-4">
           <div class="row align-items-center g-4">
             <div class="col-lg-8">
-              <h2 class="mb-2"><i class="bi bi-envelope"></i> Let’s talk about senior frontend opportunities.</h2>
+              <h2 class="mb-2"><i class="bi bi-envelope"></i> Let’s build something that feels fast, clear and production-ready.</h2>
               <p class="lead m-0">
-                I’m open to Senior Frontend, Angular Tech Lead and UI Systems roles — hybrid, remote or global.
+                Have a product idea, complex dashboard, design-system problem or legacy UI that needs serious improvement?
               </p>
             </div>
             <div class="col-lg-4 text-lg-end">
-              <a href="mailto:amircabili@gmail.com?subject=Frontend%20Role%20Inquiry%20—%20Webplace" class="btn btn-primary btn-lg">
+              <a href="mailto:amircabili@gmail.com?subject=Project%20Inquiry%20—%20Webplace" class="btn btn-primary btn-lg">
                 <i class="bi bi-send"></i> Email Amir
               </a>
             </div>
@@ -925,39 +823,62 @@
         <div class="row g-4 align-items-stretch">
           <div class="col-lg-4">
             <div class="card h-100 p-4">
-              <h5 class="mb-3"><i class="bi bi-rocket-takeoff"></i> Role fit</h5>
-              <ul class="mb-0">
-                <li>Senior Front-End Engineer</li>
-                <li>Frontend Tech Lead</li>
-                <li>Angular Architect</li>
-                <li>UI Systems Engineer</li>
-                <li>Design System Engineer</li>
+              <h5 class="mb-3"><i class="bi bi-rocket-takeoff"></i> Why teams reach out</h5>
+              <ul class="mb-4">
+                <li>Ship a polished MVP in weeks, not months</li>
+                <li>Improve Core Web Vitals and Lighthouse scores</li>
+                <li>Set up design tokens, theming and UI foundations</li>
+                <li>Simplify complex Angular and RxJS flows</li>
+                <li>Fix accessibility issues across key journeys</li>
               </ul>
+              <div class="d-grid gap-2">
+                <a href="mailto:amircabili@gmail.com?subject=Project%20Inquiry%20—%20Webplace" class="btn btn-primary">
+                  <i class="bi bi-send"></i> Email Amir
+                </a>
+                <a href="#" class="btn btn-outline-light" onclick="alert('Calendar link coming soon. Please email to book a slot.'); return false;">
+                  <i class="bi bi-calendar3"></i> Book a discovery call
+                </a>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="card h-100 p-4">
-              <h5 class="mb-3"><i class="bi bi-kanban"></i> Strongest environments</h5>
-              <ul class="mb-0">
-                <li>Cybersecurity products</li>
-                <li>Fintech and banking platforms</li>
-                <li>Enterprise SaaS dashboards</li>
-                <li>Complex Angular applications</li>
-                <li>Design-system driven teams</li>
+              <h5 class="mb-3"><i class="bi bi-kanban"></i> Typical engagements</h5>
+              <ul class="mb-3">
+                <li>New product UI from zero to MVP</li>
+                <li>Dashboards with real-time data and caching</li>
+                <li>PWA and mobile-first web applications</li>
+                <li>Design system architecture and implementation</li>
+                <li>Accessibility audits and WCAG remediation</li>
+                <li>Performance profiling and delivery workflows</li>
               </ul>
+              <div class="small opacity-75">
+                <div><i class="bi bi-clock"></i> Typical response: <strong>within 24 hours</strong></div>
+                <div><i class="bi bi-geo"></i> Based in Tel Aviv • Remote friendly</div>
+                <div><i class="bi bi-translate"></i> English / Hebrew</div>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="card h-100 p-4">
-              <h5 class="mb-3"><i class="bi bi-link-45deg"></i> Links</h5>
-              <ul class="mb-0">
-                <li><a href="mailto:amircabili@gmail.com">amircabili@gmail.com</a></li>
-                <li><a href="https://github.com/amircabili" target="_blank" rel="noopener">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/amir-cabili-9275291b/" target="_blank" rel="noopener">LinkedIn</a></li>
-                <li><a href="https://www.webplace.co.il" target="_blank" rel="noopener">www.webplace.co.il</a></li>
+              <h5 class="mb-3"><i class="bi bi-check2-square"></i> What helps me help you</h5>
+              <ul class="mb-3">
+                <li>1–2 sentence problem statement</li>
+                <li>Target users and key journeys</li>
+                <li>Tech stack and constraints</li>
+                <li>Timeline, budget range and stakeholders</li>
+                <li>Success metrics: LCP, conversion, a11y, delivery speed</li>
               </ul>
+              <div class="d-flex gap-2 flex-wrap">
+                <a href="mailto:amircabili@gmail.com?subject=Brief%20Attached&body=Hi%20Amir%2C%20here%27s%20our%20brief%20and%20timeline..." class="btn btn-outline-light">
+                  <i class="bi bi-paperclip"></i> Send a brief
+                </a>
+                <a href="mailto:amircabili@gmail.com?subject=Quick%20Question&body=Hi%20Amir%2C%20one%20question%3A%20..." class="btn btn-outline-light">
+                  <i class="bi bi-chat-dots"></i> Ask a quick question
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -968,13 +889,12 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" id="q1">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="true" aria-controls="a1">
-                    What kind of frontend work do I do best?
+                    How does a typical project start?
                   </button>
                 </h2>
                 <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#contactFAQ">
                   <div class="accordion-body">
-                    I’m strongest in complex Angular and TypeScript environments: dashboards, portals, enterprise SaaS products,
-                    design systems, performance-sensitive UI and frontend architecture that needs to scale across teams.
+                    We start with a focused discovery call to define scope, constraints and success metrics. I then propose a lean plan with milestones, deliverables and a practical timeline.
                   </div>
                 </div>
               </div>
@@ -982,13 +902,12 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" id="q2">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
-                    Do I work with modern Angular?
+                    What do you deliver?
                   </button>
                 </h2>
                 <div id="a2" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
                   <div class="accordion-body">
-                    Yes. My recent work includes Angular 17+ and modern frontend patterns, with strong TypeScript,
-                    RxJS, SCSS, responsive UI and component architecture experience.
+                    Production-ready UI, documented components, accessibility fixes, performance improvements, design-system foundations and concise handover notes.
                   </div>
                 </div>
               </div>
@@ -996,13 +915,12 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" id="q3">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
-                    How do I use AI in frontend delivery?
+                    Do you work with Angular 16/17 and standalone APIs?
                   </button>
                 </h2>
                 <div id="a3" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
                   <div class="accordion-body">
-                    I use AI-assisted workflows to speed up repetitive UI work, review, documentation and frontend iteration.
-                    I keep product-specific tools and internal implementation details private.
+                    Yes. I build new apps with standalone components, route config and functional providers. Migration plans can be incremental, typed and low-risk.
                   </div>
                 </div>
               </div>
@@ -1010,13 +928,25 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" id="q4">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
-                    How do I protect product confidentiality?
+                    How do you approach performance at scale?
                   </button>
                 </h2>
                 <div id="a4" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
                   <div class="accordion-body">
-                    I avoid exposing private product names, unreleased tools, internal systems and client-specific implementation details.
-                    Public portfolio work focuses on patterns, outcomes and capability.
+                    I set practical budgets for LCP, CLS and INP, lazy-load routes, optimize images, profile change detection and tune RxJS flows to avoid unnecessary work.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">
+                    How do you protect client and product confidentiality?
+                  </button>
+                </h2>
+                <div id="a5" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                  <div class="accordion-body">
+                    I avoid exposing private product names, unreleased tools, internal systems and client-specific implementation details. Public portfolio work focuses on patterns, outcomes and capability.
                   </div>
                 </div>
               </div>
@@ -1034,7 +964,7 @@
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Amir Cabili. Senior Front-End Engineer. Version <strong>#0030</strong></p>
+    <p>© <span id="year"></span> Amir Cabili. Built with HTML, SCSS & Bootstrap Icons. Version <strong>#0022</strong></p>
   </footer>
 
   <script>
