@@ -1,558 +1,997 @@
 <!doctype html>
-<!-- Version: #0021 | Fix Mobile PWA image, add About + Highlights content sections (copyright‑free), keep hero split -->
+<!-- Version: #0022 | Premium positioning, no Frontuna mention, AI/internal tooling signal -->
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Amir Cabili — Senior Front-End Developer & UI/UX Expert</title>
+  <meta name="description" content="Amir Cabili — Senior Front-End Developer and UI/UX Architect based in Tel Aviv. Angular, TypeScript, design systems, performance, accessibility, and advanced frontend systems."/>
+  <title>Amir Cabili — Senior Front-End Developer & UI/UX Architect</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+  <link rel="preconnect" href="https://images.unsplash.com"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
     :root {
       --bg-dark: #0d1117;
+      --bg-dark-soft: #111827;
       --text-dark: #ffffff;
+      --muted-dark: #cbd5e1;
       --bg-light: #f8f9fa;
-      --text-light: #000000;
+      --text-light: #0f172a;
+      --muted-light: #475569;
       --primary: #60a5fa;
       --accent: #a78bfa;
+      --success: #34d399;
+      --card-dark: rgba(255,255,255,.06);
+      --card-border-dark: rgba(255,255,255,.12);
+      --card-light: #ffffff;
+      --card-border-light: rgba(15,23,42,.12);
     }
-    body { transition: background-color .4s, color .4s; font-family: 'Inter', system-ui, sans-serif; }
-    body[data-theme="dark"] { background-color: var(--bg-dark); color: var(--text-dark); }
-    body[data-theme="light"] { background-color: var(--bg-light); color: var(--text-light); }
 
-    header.navbar { position: sticky; top: 0; z-index: 1000; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(10px); }
-    header.navbar a { color: #ffffff; text-decoration: none; margin: 0 10px; font-weight: 500; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      transition: background-color .4s, color .4s;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    body[data-theme="dark"] {
+      background: radial-gradient(circle at top left, rgba(96,165,250,.12), transparent 35%),
+                  radial-gradient(circle at top right, rgba(167,139,250,.12), transparent 30%),
+                  var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    body[data-theme="light"] {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    header.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(13,17,23,.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    header.navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 8px;
+      font-weight: 500;
+      font-size: .95rem;
+    }
+
     header.navbar a:hover { color: var(--primary); }
 
-    .theme-toggle { border: none; background: none; color: #ffffff; font-size: 1.2rem; cursor: pointer; }
+    .theme-toggle {
+      border: none;
+      background: none;
+      color: #ffffff;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
 
-    .hero { text-align: left; padding: 5rem 1rem; background: linear-gradient(160deg, rgba(96,165,250,.15), rgba(167,139,250,.15)); border-radius: 20px; margin: 2rem auto; color: var(--text-dark); }
-.hero h1 { font-size: 3rem; font-weight: 900; background: linear-gradient(90deg, #ffffff, #a3bffa); -webkit-background-clip: text; color: transparent; }
-.hero .lead { font-size: 1.125rem; color: var(--primary); }
-.hero-img { width: 100%; height: auto; border-radius: 16px; display:block; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
-    .hero h1 { font-size: 3.5rem; font-weight: 900; background: linear-gradient(90deg, #ffffff, #a3bffa); -webkit-background-clip: text; color: transparent; }
-    .hero p.lead { font-size: 1.25rem; color: var(--primary); text-shadow: 0 0 8px rgba(0,0,0,0.4); }
+    body[data-theme="light"] header.navbar {
+      background-color: rgba(255,255,255,.92);
+      border-bottom: 1px solid rgba(15,23,42,.1);
+    }
 
-    .card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; transition: transform .3s ease; color: var(--text-dark); overflow: hidden; }
-    body[data-theme="light"] .card { background: #ffffff; border-color: rgba(0,0,0,.1); color: #000000; }
-    .card:hover { transform: translateY(-6px); }
+    body[data-theme="light"] header.navbar a,
+    body[data-theme="light"] .theme-toggle {
+      color: var(--text-light) !important;
+    }
 
-    h2, h5, p, li { color: var(--text-dark); }
+    .hero {
+      padding: 5.5rem 1rem;
+      background:
+        linear-gradient(135deg, rgba(96,165,250,.18), rgba(167,139,250,.14)),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 28px;
+      margin: 2rem auto;
+      overflow: hidden;
+    }
 
-    .tech { margin-top:.4rem; }
-    .tech .badge { margin: 2px 4px 0 0; }
+    .eyebrow {
+      display: inline-flex;
+      gap: .5rem;
+      align-items: center;
+      padding: .4rem .75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(96,165,250,.35);
+      color: var(--primary);
+      background: rgba(96,165,250,.1);
+      font-weight: 700;
+      font-size: .88rem;
+      margin-bottom: 1rem;
+    }
 
-    footer { color: #ffffff; font-size: .9rem; border-top: 1px solid rgba(255,255,255,.1); text-align: center; padding: 2rem 0; margin-top: 3rem; }
-    body[data-theme="light"] footer { color: #000000; border-color: rgba(0,0,0,.1); }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: .98;
+      font-weight: 950;
+      letter-spacing: -0.055em;
+      background: linear-gradient(90deg, #ffffff, #bfdbfe, #ddd6fe);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
 
-    section.section-bg { background: url('https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; background-attachment: fixed; }
+    .hero .lead {
+      font-size: 1.25rem;
+      color: var(--primary);
+      font-weight: 650;
+    }
 
-    /* Experience images */
-    .exp-img { width: 100%; height: 150px; object-fit: cover; object-position: center; display:block; filter:saturate(1.05); }
-    .exp-title { display:flex; align-items:center; gap:.5rem; margin-top:.5rem; }
-    .exp-title i{ color: var(--primary); }
-      /* Light theme text overrides: force all copy to black */
+    .hero .subcopy {
+      font-size: 1.06rem;
+      color: var(--muted-dark);
+      max-width: 660px;
+    }
+
+    body[data-theme="light"] .hero h1 {
+      background: linear-gradient(90deg, #0f172a, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      color: transparent !important;
+    }
+
+    body[data-theme="light"] .hero .subcopy {
+      color: var(--muted-light);
+    }
+
+    .hero-img {
+      width: 100%;
+      height: auto;
+      border-radius: 22px;
+      display: block;
+      box-shadow: 0 24px 70px rgba(0,0,0,.34);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .75rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat {
+      padding: .9rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1.1;
+      color: #fff;
+    }
+
+    .stat span {
+      font-size: .88rem;
+      color: var(--muted-dark);
+    }
+
+    body[data-theme="light"] .stat {
+      background: #ffffff;
+      border-color: rgba(15,23,42,.12);
+    }
+
+    body[data-theme="light"] .stat strong { color: var(--text-light); }
+    body[data-theme="light"] .stat span { color: var(--muted-light); }
+
+    .section-title {
+      max-width: 760px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    .section-title p {
+      color: var(--muted-dark);
+      margin: 0;
+    }
+
+    body[data-theme="light"] .section-title p {
+      color: var(--muted-light);
+    }
+
+    .card {
+      background: var(--card-dark);
+      border: 1px solid var(--card-border-dark);
+      border-radius: 18px;
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+      color: var(--text-dark);
+      overflow: hidden;
+      box-shadow: 0 10px 32px rgba(0,0,0,.16);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(96,165,250,.42);
+      box-shadow: 0 20px 50px rgba(0,0,0,.24);
+    }
+
+    body[data-theme="light"] .card {
+      background: var(--card-light);
+      border-color: var(--card-border-light);
+      color: var(--text-light);
+      box-shadow: 0 10px 28px rgba(15,23,42,.08);
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted-dark);
+    }
+
+    body[data-theme="light"] .card p,
+    body[data-theme="light"] .card li {
+      color: var(--muted-light);
+    }
+
+    .icon-pill {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(96,165,250,.12);
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: .85rem;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: .45rem .65rem;
+      font-weight: 650;
+    }
+
+    .badge.bg-primary {
+      background: rgba(96,165,250,.18) !important;
+      color: #bfdbfe;
+      border: 1px solid rgba(96,165,250,.28);
+    }
+
+    body[data-theme="light"] .badge.bg-primary {
+      color: #1d4ed8;
+      background: rgba(37,99,235,.1) !important;
+    }
+
+    .project-img,
+    .exp-img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: saturate(1.04);
+    }
+
+    .exp-title {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      margin-top: .5rem;
+    }
+
+    .exp-title i {
+      color: var(--primary);
+    }
+
+    .section-bg {
+      background:
+        linear-gradient(180deg, rgba(13,17,23,.55), rgba(13,17,23,.8)),
+        url('https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+      background-attachment: fixed;
+    }
+
+    .dark-panel {
+      background: rgba(13,17,23,.82);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 28px;
+      padding: 2rem;
+    }
+
+    .accordion-item {
+      border-radius: 14px !important;
+      overflow: hidden;
+      margin-bottom: .75rem;
+    }
+
+    body[data-theme="dark"] .accordion-item {
+      background-color: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    body[data-theme="dark"] .accordion-button {
+      background-color: rgba(255,255,255,.04);
+      color: var(--text-dark);
+    }
+
+    body[data-theme="dark"] .accordion-button:not(.collapsed) {
+      background-color: rgba(255,255,255,.08);
+      color: var(--text-dark);
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,.12);
+    }
+
+    body[data-theme="dark"] .accordion-body {
+      color: var(--muted-dark);
+    }
+
+    body[data-theme="dark"] .accordion-button::after {
+      filter: invert(1);
+    }
+
+    .cta-panel {
+      background: linear-gradient(135deg, rgba(96,165,250,.2), rgba(167,139,250,.18));
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 24px;
+      padding: 2rem;
+    }
+
+    footer {
+      color: var(--muted-dark);
+      font-size: .9rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    body[data-theme="light"] footer {
+      color: var(--muted-light);
+      border-color: rgba(15,23,42,.1);
+    }
+
     body[data-theme="light"] h1,
     body[data-theme="light"] h2,
     body[data-theme="light"] h3,
     body[data-theme="light"] h4,
     body[data-theme="light"] h5,
-    body[data-theme="light"] h6,
-    body[data-theme="light"] p,
-    body[data-theme="light"] li,
-    body[data-theme="light"] a,
-    body[data-theme="light"] .hero { color: var(--text-light) !important; }
+    body[data-theme="light"] h6 {
+      color: var(--text-light);
+    }
 
-    /* Navbar readable in light mode */
-    body[data-theme="light"] header.navbar { background-color: rgba(255,255,255,0.9); }
-    body[data-theme="light"] header.navbar a,
-    body[data-theme="light"] .theme-toggle { color: #000000 !important; }
+    body[data-theme="light"] .text-light {
+      color: var(--text-light) !important;
+    }
 
-    /* Override utility classes that force light text */
-    body[data-theme="light"] .text-light { color: var(--text-light) !important; }
+    @media (max-width: 991px) {
+      header.navbar .nav-links {
+        display: none !important;
+      }
 
-    /* Dark mode styling for FAQ accordion */
-    body[data-theme="dark"] .accordion-item { background-color: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
-    body[data-theme="dark"] .accordion-button { background-color: rgba(255,255,255,.04); color: var(--text-dark); }
-    body[data-theme="dark"] .accordion-button:not(.collapsed) { background-color: rgba(255,255,255,.08); color: var(--text-dark); box-shadow: inset 0 -1px 0 rgba(255,255,255,.12); }
-    body[data-theme="dark"] .accordion-body { color: var(--text-dark); }
-    body[data-theme="dark"] .accordion-button::after { filter: invert(1); }
-    
-</style>
+      .hero {
+        padding: 3.5rem 1rem;
+      }
+
+      .stat-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body data-theme="dark">
-  <header class="navbar navbar-expand-lg navbar-dark px-3">
+  <header class="navbar navbar-expand-lg px-3">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold text-light" href="#"><i class="bi bi-code-slash"></i> Amir Cabili</a>
-      <div class="d-flex align-items-center ms-auto">
-        <a href="#about" class="me-3"><i class="bi bi-person"></i> About</a>
-        <a href="#projects" class="me-3"><i class="bi bi-kanban"></i> Projects</a>
-        <a href="#experience" class="me-3"><i class="bi bi-briefcase"></i> Experience</a>
-        <a href="#contactFAQ" class="me-3"><i class="bi bi-question-circle"></i> Q&amp;A</a>
-        <a href="#contact" class="me-3"><i class="bi bi-envelope"></i> Contact</a>
-        <button id="themeToggle" class="theme-toggle" aria-pressed="false" title="Toggle theme"><i class="bi bi-sun"></i></button>
+      <a class="navbar-brand fw-bold text-light" href="#">
+        <i class="bi bi-code-slash"></i> Amir Cabili
+      </a>
+
+      <div class="nav-links d-flex align-items-center ms-auto">
+        <a href="#about"><i class="bi bi-person"></i> About</a>
+        <a href="#systems"><i class="bi bi-cpu"></i> Systems</a>
+        <a href="#projects"><i class="bi bi-kanban"></i> Projects</a>
+        <a href="#experience"><i class="bi bi-briefcase"></i> Experience</a>
+        <a href="#contact"><i class="bi bi-envelope"></i> Contact</a>
       </div>
+
+      <button id="themeToggle" class="theme-toggle ms-2" aria-pressed="false" title="Toggle theme">
+        <i class="bi bi-sun"></i>
+      </button>
     </div>
   </header>
 
-  <section class="hero text-light">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-6">
-          <h1>Crafting the Future of Web Experiences</h1>
-          <p class="lead mb-2">Senior Front-End Developer & UI/UX Architect based in Tel Aviv</p>
-          <p class="mb-4">I build performant, elegant, and accessible interfaces using Angular, TypeScript, RxJS, and design systems — optimized for Lighthouse 90+, a11y, and conversion.</p>
-          <div class="d-flex gap-2">
-            <a href="#projects" class="btn btn-primary"><i class="bi bi-eye"></i> View Projects</a>
-            <a href="Amir-Cabili---2026.docx" class="btn btn-outline-light" download="Amir-Cabili---2026.docx" target="_blank" rel="noopener"><i class="bi bi-download"></i> Download CV</a>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <img class="hero-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop" alt="Modern workspace with monitors and UI design — copyright‑free Unsplash" loading="eager" width="1200" height="800">
-        </div>
-      </div>
-    </div>
-  </section>
+  <main>
+    <section class="hero text-light">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="eyebrow">
+              <i class="bi bi-stars"></i>
+              Senior Front-End • UI Systems • AI-assisted Delivery
+            </div>
 
-  <!-- About / Summary -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-7">
-          <h2 class="mb-3"><i class="bi bi-person"></i> About Amir</h2>
-          <p class="mb-3">I’m a Senior Front‑End Developer & UI/UX Expert with 10+ years building high‑impact products for enterprise and startup teams. I specialize in Angular, TypeScript, and design systems that scale — with strong attention to accessibility (WCAG), performance (Core Web Vitals), and delightful micro‑interactions.</p>
-          <ul class="mb-3">
-            <li><strong>Leadership:</strong> Led multi‑team design system efforts and mentored 8+ engineers.</li>
-            <li><strong>Performance:</strong> Consistently ship Lighthouse 90+ and measurable UX wins.</li>
-            <li><strong>Accessibility:</strong> WCAG 2.1 AA implementations, ARIA patterns, keyboard flows.</li>
-          </ul>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="badge bg-primary">Angular</span>
-            <span class="badge bg-primary">TypeScript</span>
-            <span class="badge bg-primary">RxJS</span>
-            <span class="badge bg-primary">SCSS</span>
-            <span class="badge bg-primary">Design System</span>
-            <span class="badge bg-primary">A11y</span>
-            <span class="badge bg-primary">NgRx</span>
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <div class="card p-3 h-100 text-center">
-            <h5 class="mb-3"><i class="bi bi-award"></i> Highlights</h5>
-            <ul class="text-start m-0">
-              <li>Shipped 30+ production web apps</li>
-              <li>Reduced initial load up to 45%</li>
-              <li>Cut CLS & LCP regressions across teams</li>
-              <li>Built tokenized theming (dark/light)</li>
-              <li>Hands‑on with audits & usability testing</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <h1>Building fast, elegant frontend systems for serious products.</h1>
 
-  <!-- Value Propositions / What I Do -->
-  <section id="highlights" class="py-5">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card p-3 h-100">
-            <h5 class="mb-2"><i class="bi bi-speedometer2"></i> Performance First</h5>
-            <p class="m-0">Code‑splitting, preloading strategies, image optimization, and RxJS patterns that keep UI silky smooth on real devices.</p>
+            <p class="lead mt-3 mb-2">
+              Senior Front-End Developer & UI/UX Architect based in Tel Aviv.
+            </p>
+
+            <p class="subcopy mb-4">
+              I help product teams ship scalable Angular, TypeScript and design-system driven interfaces —
+              with strong focus on performance, accessibility, maintainability and conversion.
+            </p>
+
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#projects" class="btn btn-primary btn-lg">
+                <i class="bi bi-eye"></i> View Selected Work
+              </a>
+              <a href="Amir-Cabili---2026.docx" class="btn btn-outline-light btn-lg" download="Amir-Cabili---2026.docx" target="_blank" rel="noopener">
+                <i class="bi bi-download"></i> Download CV
+              </a>
+            </div>
+
+            <div class="stat-strip">
+              <div class="stat">
+                <strong>10+ yrs</strong>
+                <span>Frontend delivery</span>
+              </div>
+              <div class="stat">
+                <strong>30+</strong>
+                <span>Production web apps</span>
+              </div>
+              <div class="stat">
+                <strong>90+</strong>
+                <span>Lighthouse targets</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3 h-100">
-            <h5 class="mb-2"><i class="bi bi-palette"></i> Design Systems</h5>
-            <p class="m-0">Tokenized theming with SCSS utilities, consistent components, and UX guidelines that scale across products.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3 h-100">
-            <h5 class="mb-2"><i class="bi bi-universal-access"></i> Inclusive by Default</h5>
-            <p class="m-0">WCAG‑compliant flows, semantic HTML, ARIA patterns, and clear focus states so everyone can use your product.</p>
+
+          <div class="col-lg-6">
+            <img
+              class="hero-img"
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop"
+              alt="Modern frontend workspace with monitors and UI design"
+              loading="eager"
+              width="1200"
+              height="800"
+            >
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects" class="section py-5 section-bg">
-    <div class="container bg-dark bg-opacity-75 rounded-4 p-4">
-      <h2 class="text-center mb-4 text-light"><i class="bi bi-kanban"></i> Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card p-3 text-center">
-            <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded mb-3" alt="Enterprise dashboard" loading="lazy" width="720" height="480"/>
-            <i class="bi bi-laptop display-6 text-primary"></i>
-            <h5>Enterprise Dashboard</h5>
-            <ul class="text-start mt-2">
-              <li>Angular 17+ with advanced filters</li>
-              <li>Responsive analytics UI</li>
-              <li>Performance-optimized charts</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3 text-center">
-            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded mb-3" alt="Mobile PWA mockups" loading="lazy" width="720" height="480" onerror="this.src='https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=800&auto=format&fit=crop'"/>
-            <i class="bi bi-phone display-6 text-primary"></i>
-            <h5>Mobile Portal</h5>
-            <ul class="text-start mt-2">
-              <li>PWA with offline-first UX</li>
-              <li>Cross-device optimization</li>
-              <li>Session caching & sync</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3 text-center">
-            <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded mb-3" alt="Design system components" loading="lazy" width="720" height="480"/>
-            <i class="bi bi-palette display-6 text-primary"></i>
-            <h5>Design System</h5>
-            <ul class="text-start mt-2">
-              <li>SCSS tokens & utilities</li>
-              <li>Custom Angular components</li>
-              <li>Unified dark/light themes</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="about" class="py-5">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-7">
+            <div class="card p-4 h-100">
+              <h2 class="mb-3"><i class="bi bi-person"></i> About Amir</h2>
 
-  <!-- Experience with elegant office photos (Unsplash, free to use) -->
-  <section id="experience" class="section py-5">
-    <div class="container">
-      <h2 class="text-center mb-4"><i class="bi bi-briefcase"></i> Experience</h2>
-      <div class="row g-4">
-        <!-- 1 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" alt="Modern office meeting room" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-diagram-3"></i><h5 class="m-0">Hub Security — Front-End Tech Lead</h5></div>
-              <ul class="mt-2"><li>Angular microfrontends</li><li>RxJS data pipelines</li><li>Mentored 8+ devs</li></ul>
-              <div class="tech"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">TypeScript</span><span class="badge bg-primary">RxJS</span><span class="badge bg-primary">SCSS</span></div>
+              <p>
+                I’m a Senior Front-End Developer and UI/UX Expert with 10+ years of experience building
+                high-impact products for enterprise and startup teams. My work sits at the intersection of
+                engineering, design systems and product execution.
+              </p>
+
+              <p>
+                I specialize in Angular, TypeScript, RxJS, SCSS, accessibility and performance. I also build
+                internal AI-driven tooling and workflows that help teams accelerate UI delivery, improve consistency
+                and reduce repetitive implementation work — without exposing product-specific tooling or client IP.
+              </p>
+
+              <ul class="mb-3">
+                <li><strong>Architecture:</strong> scalable Angular apps, microfrontends, modular UI foundations.</li>
+                <li><strong>Design systems:</strong> tokens, theming, reusable components, Storybook-ready patterns.</li>
+                <li><strong>Quality:</strong> WCAG, Lighthouse, Core Web Vitals, typed contracts and maintainable UX flows.</li>
+              </ul>
+
+              <div class="d-flex flex-wrap gap-2">
+                <span class="badge bg-primary">Angular</span>
+                <span class="badge bg-primary">TypeScript</span>
+                <span class="badge bg-primary">RxJS</span>
+                <span class="badge bg-primary">SCSS</span>
+                <span class="badge bg-primary">Design Systems</span>
+                <span class="badge bg-primary">Accessibility</span>
+                <span class="badge bg-primary">Performance</span>
+                <span class="badge bg-primary">AI-assisted UI</span>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- 2 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1529335764857-3f1164d1cb24?q=80&w=1200&auto=format&fit=crop" alt="Product design collaboration" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-bezier2"></i><h5 class="m-0">Hub Security — UI/UX Specialist</h5></div>
-              <ul class="mt-2"><li>Data-driven dashboards</li><li>Usability & A11y</li><li>Design tokens</li></ul>
-              <div class="tech"><span class="badge bg-primary">Figma</span><span class="badge bg-primary">Design Tokens</span><span class="badge bg-primary">A11y</span><span class="badge bg-primary">Angular</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 3 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1518182170549-5881dcesf?ixlib=rb-4.0.3&q=80&w=1200&auto=format&fit=crop" alt="Trading floor monitors" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop'">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-graph-up"></i><h5 class="m-0">eToro — Front-End Engineer</h5></div>
-              <ul class="mt-2"><li>Real-time dashboards</li><li>Optimized pipelines</li><li>-35% render lag</li></ul>
-              <div class="tech"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">NgRx</span><span class="badge bg-primary">RxJS</span><span class="badge bg-primary">WebSockets</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 4 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Developers at laptops" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-universal-access"></i><h5 class="m-0">eToro — Accessibility Specialist</h5></div>
-              <ul class="mt-2"><li>WCAG 2.1 AA audits</li><li>ARIA patterns</li><li>Keyboard navigation</li></ul>
-              <div class="tech"><span class="badge bg-primary">WCAG</span><span class="badge bg-primary">ARIA</span><span class="badge bg-primary">Keyboard</span><span class="badge bg-primary">Testing</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 5 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Team planning at table" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-layers"></i><h5 class="m-0">Aman Group — UI/UX Specialist</h5></div>
-              <ul class="mt-2"><li>Component library</li><li>UI consistency</li><li>Figma workflows</li></ul>
-              <div class="tech"><span class="badge bg-primary">SCSS</span><span class="badge bg-primary">Bootstrap</span><span class="badge bg-primary">UX</span><span class="badge bg-primary">Design System</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 6 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Workshop with sticky notes" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-shield-check"></i><h5 class="m-0">Aman Group — Accessibility Lead</h5></div>
-              <ul class="mt-2"><li>WCAG AA compliance</li><li>Accessible patterns</li><li>Inclusive reviews</li></ul>
-              <div class="tech"><span class="badge bg-primary">WCAG</span><span class="badge bg-primary">ARIA</span><span class="badge bg-primary">Lighthouse</span><span class="badge bg-primary">Screen Readers</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 7 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Data visualization on monitors" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-cpu"></i><h5 class="m-0">Matrix Digital — Front-End Dev</h5></div>
-              <ul class="mt-2"><li>Modular dashboards</li><li>D3 visualizations</li><li>Faster delivery</li></ul>
-              <div class="tech"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">D3.js</span><span class="badge bg-primary">TypeScript</span><span class="badge bg-primary">SCSS</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 8 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" alt="Design studio desk" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-brush"></i><h5 class="m-0">Matrix Digital — UI/UX Expert</h5></div>
-              <ul class="mt-2"><li>Design systems</li><li>Style guides</li><li>Brand consistency</li></ul>
-              <div class="tech"><span class="badge bg-primary">Design System</span><span class="badge bg-primary">Color</span><span class="badge bg-primary">Typography</span><span class="badge bg-primary">Audit</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 9 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" alt="Conference hall setup" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-translate"></i><h5 class="m-0">Kenes Group — Web Developer</h5></div>
-              <ul class="mt-2"><li>Event dashboards</li><li>Multilingual UI</li><li>Load optimization</li></ul>
-              <div class="tech"><span class="badge bg-primary">HTML</span><span class="badge bg-primary">CSS</span><span class="badge bg-primary">JavaScript</span><span class="badge bg-primary">i18n</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 10 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="Creative agency workspace" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-megaphone"></i><h5 class="m-0">Zarmon Advertising — FE Designer</h5></div>
-              <ul class="mt-2"><li>Ad landing pages</li><li>Micro-animations</li><li>Brand visuals</li></ul>
-              <div class="tech"><span class="badge bg-primary">CSS Animations</span><span class="badge bg-primary">GSAP</span><span class="badge bg-primary">Photoshop</span><span class="badge bg-primary">Branding</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 11 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1200&auto=format&fit=crop" alt="Freelance home office" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-rocket-takeoff"></i><h5 class="m-0">Freelance — Senior Front-End</h5></div>
-              <ul class="mt-2"><li>30+ SaaS apps</li><li>SEO & performance</li><li>Pixel-perfect UI</li></ul>
-              <div class="tech"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">React</span><span class="badge bg-primary">Next.js</span><span class="badge bg-primary">Vercel</span><span class="badge bg-primary">Netlify</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 12 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Open source coding" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-git"></i><h5 class="m-0">Open Source & Certifications</h5></div>
-              <ul class="mt-2"><li>Angular tooling & SCSS libs</li><li>Reusable components</li><li>B.Sc. CS (HCI), UX/UI</li></ul>
-              <div class="tech"><span class="badge bg-primary">Git</span><span class="badge bg-primary">CI</span><span class="badge bg-primary">npm</span><span class="badge bg-primary">ESLint</span><span class="badge bg-primary">HCI</span></div>
+
+          <div class="col-lg-5">
+            <div class="card p-4 h-100">
+              <h5 class="mb-3"><i class="bi bi-award"></i> What I’m usually brought in for</h5>
+              <ul class="m-0">
+                <li>Turning messy product UI into scalable frontend architecture</li>
+                <li>Building dashboards, portals and complex data-heavy interfaces</li>
+                <li>Improving performance, loading strategy and real-device UX</li>
+                <li>Creating token-based design systems for multi-team delivery</li>
+                <li>Helping teams ship faster with structured frontend workflows</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="section py-5">
-    <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="mb-2"><i class="bi bi-envelope"></i> Let's Build Something Great</h2>
-        <p class="lead m-0">Have an idea, a roadmap, or a messy legacy UI? I help teams turn vision into fast, accessible, production‑ready experiences.</p>
-      </div>
-
-      <div class="row g-4 align-items-stretch">
-        <!-- Primary CTA & Promise -->
-        <div class="col-lg-4">
-          <div class="card h-100 p-4">
-            <h5 class="mb-3"><i class="bi bi-rocket-takeoff"></i> Why teams reach out</h5>
-            <ul class="mb-4">
-              <li>Ship a polished MVP in weeks, not months</li>
-              <li>Uplift Core Web Vitals & Lighthouse 90+ targets</li>
-              <li>Design System setup: tokens, theming, docs</li>
-              <li>Complex Angular + RxJS data flows simplified</li>
-              <li>WCAG 2.1 AA accessibility across key journeys</li>
-            </ul>
-            <div class="d-grid gap-2">
-              <a href="mailto:amir@webplace.co.il?subject=Project%20Inquiry%20—%20Webplace" class="btn btn-primary"><i class="bi bi-send"></i> Email Amir</a>
-              <a href="#" class="btn btn-outline-light" onclick="alert('Calendar link coming soon. Please email to book a slot.'); return false;"><i class="bi bi-calendar3"></i> Book a discovery call</a>
-            </div>
-          </div>
+    <section id="systems" class="py-5">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="bi bi-cpu"></i> Advanced Frontend Systems</h2>
+          <p>
+            Beyond screens and components, I build frontend systems that scale: architecture, quality gates,
+            design tokens, preview workflows and UI automation patterns.
+          </p>
         </div>
 
-        <!-- Services & Engagements -->
-        <div class="col-lg-4">
-          <div class="card h-100 p-4">
-            <h5 class="mb-3"><i class="bi bi-kanban"></i> Typical engagements</h5>
-            <ul class="mb-3">
-              <li>New product UI from zero → MVP</li>
-              <li>Dashboards with real‑time data & caching</li>
-              <li>PWA: offline‑first, installable, mobile‑tuned</li>
-              <li>Design System (docs, tokens, components)</li>
-              <li>Accessibility audits & fixes (WCAG 2.1 AA)</li>
-              <li>Performance budgets, profiling, and CI checks</li>
-            </ul>
-            <div class="small opacity-75">
-              <div><i class="bi bi-clock"></i> Typical response: <strong>within 24 hours</strong></div>
-              <div><i class="bi bi-geo"></i> Based in Tel Aviv • Remote friendly</div>
-              <div><i class="bi bi-translate"></i> English / Hebrew</div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card p-4 h-100">
+              <div class="icon-pill"><i class="bi bi-diagram-3"></i></div>
+              <h5>Component Architecture</h5>
+              <p>
+                Reusable, typed and testable components with clear API boundaries, predictable state and clean integration contracts.
+              </p>
             </div>
           </div>
-        </div>
 
-        <!-- Project Fit Checklist -->
-        <div class="col-lg-4">
-          <div class="card h-100 p-4">
-            <h5 class="mb-3"><i class="bi bi-check2-square"></i> What helps me help you</h5>
-            <ul class="mb-3">
-              <li>1–2 sentence problem statement</li>
-              <li>Target users & key journeys</li>
-              <li>Tech stack & constraints</li>
-              <li>Timeline, budget range, stakeholders</li>
-              <li>Success metrics (e.g., LCP, conversion, a11y)</li>
-            </ul>
-            <div class="d-flex gap-2 flex-wrap">
-              <a href="mailto:amir@webplace.co.il?subject=Brief%20Attached&body=Hi%20Amir%2C%20here%27s%20our%20brief%20and%20timeline..." class="btn btn-outline-light"><i class="bi bi-paperclip"></i> Send a brief</a>
-              <a href="mailto:amir@webplace.co.il?subject=Quick%20Question&body=Hi%20Amir%2C%20one%20question%3A%20..." class="btn btn-outline-light"><i class="bi bi-chat-dots"></i> Ask a quick question</a>
+          <div class="col-md-4">
+            <div class="card p-4 h-100">
+              <div class="icon-pill"><i class="bi bi-magic"></i></div>
+              <h5>AI-Assisted Delivery</h5>
+              <p>
+                Internal workflows for accelerating UI generation, review, refactoring and documentation while keeping product ownership private.
+              </p>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- FAQ / Details -->
-      <div class="row mt-4">
-        <div class="col-lg-10 mx-auto">
-          <div class="accordion" id="contactFAQ">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q1"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="true" aria-controls="a1">How does a typical project start?</button></h2>
-              <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">We kick off with a 30–45m discovery call to define scope, constraints, and success metrics. I then propose a short plan covering milestones, deliverables, and a lean timeline.</div>
-              </div>
+          <div class="col-md-4">
+            <div class="card p-4 h-100">
+              <div class="icon-pill"><i class="bi bi-speedometer2"></i></div>
+              <h5>Performance & UX Quality</h5>
+              <p>
+                Practical optimization for LCP, CLS, INP, route loading, image strategy, caching and responsive real-device behavior.
+              </p>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">What do you deliver?</button></h2>
-              <div id="a2" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Production‑ready UI (Angular/TypeScript/SCSS), documented components, accessibility fixes, performance improvements, and concise handover notes or Loom walkthroughs.</div>
-              </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card p-4 h-100">
+              <div class="icon-pill"><i class="bi bi-palette"></i></div>
+              <h5>Design Systems</h5>
+              <p>
+                Design tokens, SCSS utilities, dark/light theming, reusable primitives and component documentation for consistent delivery.
+              </p>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">Engagement models?</button></h2>
-              <div id="a3" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Fixed‑scope sprints for clear outcomes, or flexible retainers for ongoing delivery. I’m comfortable embedding with product/design/BE teams.</div>
-              </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card p-4 h-100">
+              <div class="icon-pill"><i class="bi bi-universal-access"></i></div>
+              <h5>Accessibility by Default</h5>
+              <p>
+                Semantic HTML, ARIA where needed, visible focus states, keyboard flows and WCAG 2.1 AA remediation.
+              </p>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q4"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">Tooling & collaboration?</button></h2>
-              <div id="a4" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Git, CI, Jira/Linear, Figma, Storybook, and Slack. I document decisions, add tests where they matter, and keep PRs small for fast reviews.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q5"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">Not sure where to start?</button></h2>
-              <div id="a5" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Send a link or PDF of your current UI and 3 priorities. I’ll reply with a short, actionable plan you can use immediately.</div>
-              </div>
-            </div>
-            <!-- Added experience‑focused Q&A -->
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q6"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a6" aria-expanded="false" aria-controls="a6">What is your experience with Angular 16/17 and standalone APIs?</button></h2>
-              <div id="a6" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">I build new apps with standalone components, Route Config, and functional providers. Migration plans include incremental module → standalone adoption, strict typing, and zoneless change detection where feasible.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q7"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a7" aria-expanded="false" aria-controls="a7">How do you approach performance at scale?</button></h2>
-              <div id="a7" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">I set performance budgets (LCP, CLS, INP), lazy‑load routes, preconnect critical origins, optimize images (AVIF/WebP + responsive srcset), and profile change detection. I use RxJS operators to avoid needless re‑renders and ship prefetch strategies for hot paths.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q8"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a8" aria-expanded="false" aria-controls="a8">What’s your design system rollout plan?</button></h2>
-              <div id="a8" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Start with tokens (color/spacing/typography), build primitive components, add usage guidelines, and publish via Storybook + npm. I provide a migration doc and codemods to refactor legacy styles to tokenized SCSS utilities.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q9"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a9" aria-expanded="false" aria-controls="a9">How do you ensure accessibility (WCAG 2.1 AA)?</button></h2>
-              <div id="a9" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Semantic HTML, ARIA where appropriate, focus management, visible states, and keyboard‑first flows. I run axe, Lighthouse, and manual screen‑reader checks (NVDA/VoiceOver), with a backlog of a11y issues triaged by severity.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q10"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a10" aria-expanded="false" aria-controls="a10">Do you work with micro‑frontends?</button></h2>
-              <div id="a10" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Yes—Module Federation for independent deploys, shared UI libraries, and clear routing contracts. I add observability for cross‑app performance and a design‑token pact to keep UX consistent.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q11"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a11" aria-expanded="false" aria-controls="a11">State management preferences?</button></h2>
-              <div id="a11" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Start simple with signals/Component Store, move to NgRx for complex domains or cross‑cutting concerns. Strong typing, selector memoization, and clear action conventions keep data flows predictable.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q12"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a12" aria-expanded="false" aria-controls="a12">Testing strategy?</button></h2>
-              <div id="a12" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Unit tests for pure logic, component tests with Testing Library, and a slim E2E layer (Playwright) on critical journeys. I add visual regression for DS components and wire tests into CI gates.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q13"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a13" aria-expanded="false" aria-controls="a13">How do you run code reviews and mentorship?</button></h2>
-              <div id="a13" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Small PRs, clear checklists (a11y, perf, security), and constructive comments. I pair with devs, share snippets/patterns, and track recurring issues to evolve our guidelines.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q14"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a14" aria-expanded="false" aria-controls="a14">Security & privacy considerations?</button></h2>
-              <div id="a14" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Follow OWASP ASVS basics: output encoding, CSP, dependency auditing, and secure storage. I avoid sensitive data in the client and review analytics to keep PII out of logs.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q15"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a15" aria-expanded="false" aria-controls="a15">Internationalization & RTL?</button></h2>
-              <div id="a15" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">I use Angular i18n or Transloco, extract copy to JSON/XLIFF, and test locale‑aware formatting. Layout tokens plus logical properties ensure effortless LTR/RTL switching.</div>
-              </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card p-4 h-100">
+              <div class="icon-pill"><i class="bi bi-shield-check"></i></div>
+              <h5>Production Readiness</h5>
+              <p>
+                Small PRs, typed interfaces, QA checklists, CI-friendly testing and clear handover notes for long-term maintainability.
+              </p>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="text-center mt-5">
-        <a href="mailto:amir@webplace.co.il" class="btn btn-primary btn-lg"><i class="bi bi-envelope-open"></i> Start the conversation</a>
+    <section id="projects" class="section py-5 section-bg">
+      <div class="container">
+        <div class="dark-panel">
+          <div class="section-title">
+            <h2 class="text-light"><i class="bi bi-kanban"></i> Selected Work Themes</h2>
+            <p>
+              Representative project areas and systems I build for product teams.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card h-100">
+                <img
+                  src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=900&auto=format&fit=crop"
+                  class="project-img"
+                  alt="Enterprise dashboard"
+                  loading="lazy"
+                >
+                <div class="p-4">
+                  <div class="icon-pill"><i class="bi bi-window-stack"></i></div>
+                  <h5>Enterprise Dashboard Systems</h5>
+                  <ul class="mt-2">
+                    <li>Advanced filtering and data workflows</li>
+                    <li>Reusable table, chart and card patterns</li>
+                    <li>Performance-aware rendering strategy</li>
+                    <li>Responsive layouts for operations teams</li>
+                  </ul>
+                  <div class="d-flex flex-wrap gap-2 mt-3">
+                    <span class="badge bg-primary">Angular</span>
+                    <span class="badge bg-primary">RxJS</span>
+                    <span class="badge bg-primary">Charts</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card h-100">
+                <img
+                  src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?q=80&w=900&auto=format&fit=crop"
+                  class="project-img"
+                  alt="Design system components"
+                  loading="lazy"
+                >
+                <div class="p-4">
+                  <div class="icon-pill"><i class="bi bi-palette2"></i></div>
+                  <h5>Token-Based Design Systems</h5>
+                  <ul class="mt-2">
+                    <li>Dark/light themes and brand tokens</li>
+                    <li>Reusable Angular component libraries</li>
+                    <li>SCSS architecture and utility layers</li>
+                    <li>Documentation-ready component APIs</li>
+                  </ul>
+                  <div class="d-flex flex-wrap gap-2 mt-3">
+                    <span class="badge bg-primary">SCSS</span>
+                    <span class="badge bg-primary">Storybook</span>
+                    <span class="badge bg-primary">A11y</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card h-100">
+                <img
+                  src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=900&auto=format&fit=crop"
+                  class="project-img"
+                  alt="AI assisted frontend workflow"
+                  loading="lazy"
+                >
+                <div class="p-4">
+                  <div class="icon-pill"><i class="bi bi-stars"></i></div>
+                  <h5>AI-Assisted UI Workflows</h5>
+                  <ul class="mt-2">
+                    <li>Structured prompt-to-UI workflows</li>
+                    <li>Preview, QA and review pipelines</li>
+                    <li>Reusable component generation patterns</li>
+                    <li>Internal tooling for faster delivery</li>
+                  </ul>
+                  <div class="d-flex flex-wrap gap-2 mt-3">
+                    <span class="badge bg-primary">AI Workflows</span>
+                    <span class="badge bg-primary">UI Systems</span>
+                    <span class="badge bg-primary">Vercel</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="small mt-4 mb-0 text-center opacity-75">
+            Product names, internal tools and client-specific implementation details are intentionally kept private.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="experience" class="section py-5">
+      <div class="container">
+        <div class="section-title">
+          <h2><i class="bi bi-briefcase"></i> Experience</h2>
+          <p>Hands-on delivery across fintech, cybersecurity, enterprise software, digital products and web platforms.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" alt="Modern office meeting room" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-diagram-3"></i><h5 class="m-0">Hub Security — Front-End Tech Lead</h5></div>
+                <ul class="mt-2"><li>Angular microfrontends</li><li>RxJS data pipelines</li><li>Mentored 8+ developers</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">TypeScript</span><span class="badge bg-primary">RxJS</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1529335764857-3f1164d1cb24?q=80&w=1200&auto=format&fit=crop" alt="Product design collaboration" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-bezier2"></i><h5 class="m-0">Hub Security — UI/UX Specialist</h5></div>
+                <ul class="mt-2"><li>Data-driven dashboards</li><li>Usability and accessibility</li><li>Design tokens</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Figma</span><span class="badge bg-primary">Design Tokens</span><span class="badge bg-primary">A11y</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Trading and analytics monitors" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-graph-up"></i><h5 class="m-0">eToro — Front-End Engineer</h5></div>
+                <ul class="mt-2"><li>Real-time dashboards</li><li>Optimized rendering pipelines</li><li>Reduced UI lag</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">NgRx</span><span class="badge bg-primary">WebSockets</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Developers at laptops" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-universal-access"></i><h5 class="m-0">eToro — Accessibility Specialist</h5></div>
+                <ul class="mt-2"><li>WCAG 2.1 AA audits</li><li>ARIA patterns</li><li>Keyboard navigation</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">WCAG</span><span class="badge bg-primary">ARIA</span><span class="badge bg-primary">Testing</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Team planning at table" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-layers"></i><h5 class="m-0">Aman Group — UI/UX Specialist</h5></div>
+                <ul class="mt-2"><li>Component library</li><li>UI consistency</li><li>Figma workflows</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">SCSS</span><span class="badge bg-primary">Bootstrap</span><span class="badge bg-primary">UX</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Workshop with sticky notes" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-shield-check"></i><h5 class="m-0">Aman Group — Accessibility Lead</h5></div>
+                <ul class="mt-2"><li>WCAG AA compliance</li><li>Accessible patterns</li><li>Inclusive reviews</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">WCAG</span><span class="badge bg-primary">Lighthouse</span><span class="badge bg-primary">Screen Readers</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Data visualization on monitors" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-cpu"></i><h5 class="m-0">Matrix Digital — Front-End Developer</h5></div>
+                <ul class="mt-2"><li>Modular dashboards</li><li>D3 visualizations</li><li>Faster delivery</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">D3.js</span><span class="badge bg-primary">TypeScript</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" alt="Design studio desk" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-brush"></i><h5 class="m-0">Matrix Digital — UI/UX Expert</h5></div>
+                <ul class="mt-2"><li>Design systems</li><li>Style guides</li><li>Brand consistency</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">Design System</span><span class="badge bg-primary">Typography</span><span class="badge bg-primary">Audit</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100">
+              <img class="exp-img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" alt="Conference hall setup" loading="lazy">
+              <div class="p-3">
+                <div class="exp-title"><i class="bi bi-translate"></i><h5 class="m-0">Kenes Group — Web Developer</h5></div>
+                <ul class="mt-2"><li>Event dashboards</li><li>Multilingual UI</li><li>Load optimization</li></ul>
+                <div class="d-flex flex-wrap gap-2"><span class="badge bg-primary">HTML</span><span class="badge bg-primary">CSS</span><span class="badge bg-primary">JavaScript</span><span class="badge bg-primary">i18n</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <p class="small opacity-75 mb-0">
+            Additional freelance, open-source and certification experience available in the downloadable CV.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section py-5">
+      <div class="container">
+        <div class="cta-panel mb-4">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <h2 class="mb-2"><i class="bi bi-envelope"></i> Let’s build something that feels fast, clear and production-ready.</h2>
+              <p class="lead m-0">
+                Have a product idea, complex dashboard, design-system problem or legacy UI that needs serious improvement?
+              </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="mailto:amir@webplace.co.il?subject=Project%20Inquiry%20—%20Webplace" class="btn btn-primary btn-lg">
+                <i class="bi bi-send"></i> Email Amir
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-4">
+            <div class="card h-100 p-4">
+              <h5 class="mb-3"><i class="bi bi-rocket-takeoff"></i> Why teams reach out</h5>
+              <ul class="mb-4">
+                <li>Ship a polished MVP in weeks, not months</li>
+                <li>Improve Core Web Vitals and Lighthouse scores</li>
+                <li>Set up design tokens, theming and UI foundations</li>
+                <li>Simplify complex Angular and RxJS flows</li>
+                <li>Fix accessibility issues across key journeys</li>
+              </ul>
+              <div class="d-grid gap-2">
+                <a href="mailto:amir@webplace.co.il?subject=Project%20Inquiry%20—%20Webplace" class="btn btn-primary">
+                  <i class="bi bi-send"></i> Email Amir
+                </a>
+                <a href="#" class="btn btn-outline-light" onclick="alert('Calendar link coming soon. Please email to book a slot.'); return false;">
+                  <i class="bi bi-calendar3"></i> Book a discovery call
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card h-100 p-4">
+              <h5 class="mb-3"><i class="bi bi-kanban"></i> Typical engagements</h5>
+              <ul class="mb-3">
+                <li>New product UI from zero to MVP</li>
+                <li>Dashboards with real-time data and caching</li>
+                <li>PWA and mobile-first web applications</li>
+                <li>Design system architecture and implementation</li>
+                <li>Accessibility audits and WCAG remediation</li>
+                <li>Performance profiling and delivery workflows</li>
+              </ul>
+              <div class="small opacity-75">
+                <div><i class="bi bi-clock"></i> Typical response: <strong>within 24 hours</strong></div>
+                <div><i class="bi bi-geo"></i> Based in Tel Aviv • Remote friendly</div>
+                <div><i class="bi bi-translate"></i> English / Hebrew</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="card h-100 p-4">
+              <h5 class="mb-3"><i class="bi bi-check2-square"></i> What helps me help you</h5>
+              <ul class="mb-3">
+                <li>1–2 sentence problem statement</li>
+                <li>Target users and key journeys</li>
+                <li>Tech stack and constraints</li>
+                <li>Timeline, budget range and stakeholders</li>
+                <li>Success metrics: LCP, conversion, a11y, delivery speed</li>
+              </ul>
+              <div class="d-flex gap-2 flex-wrap">
+                <a href="mailto:amir@webplace.co.il?subject=Brief%20Attached&body=Hi%20Amir%2C%20here%27s%20our%20brief%20and%20timeline..." class="btn btn-outline-light">
+                  <i class="bi bi-paperclip"></i> Send a brief
+                </a>
+                <a href="mailto:amir@webplace.co.il?subject=Quick%20Question&body=Hi%20Amir%2C%20one%20question%3A%20..." class="btn btn-outline-light">
+                  <i class="bi bi-chat-dots"></i> Ask a quick question
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-lg-10 mx-auto">
+            <div class="accordion" id="contactFAQ">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="true" aria-controls="a1">
+                    How does a typical project start?
+                  </button>
+                </h2>
+                <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#contactFAQ">
+                  <div class="accordion-body">
+                    We start with a focused discovery call to define scope, constraints and success metrics. I then propose a lean plan with milestones, deliverables and a practical timeline.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+                    What do you deliver?
+                  </button>
+                </h2>
+                <div id="a2" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                  <div class="accordion-body">
+                    Production-ready UI, documented components, accessibility fixes, performance improvements, design-system foundations and concise handover notes.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
+                    Do you work with Angular 16/17 and standalone APIs?
+                  </button>
+                </h2>
+                <div id="a3" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                  <div class="accordion-body">
+                    Yes. I build new apps with standalone components, route config and functional providers. Migration plans can be incremental, typed and low-risk.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
+                    How do you approach performance at scale?
+                  </button>
+                </h2>
+                <div id="a4" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                  <div class="accordion-body">
+                    I set practical budgets for LCP, CLS and INP, lazy-load routes, optimize images, profile change detection and tune RxJS flows to avoid unnecessary work.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="q5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">
+                    How do you protect client and product confidentiality?
+                  </button>
+                </h2>
+                <div id="a5" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                  <div class="accordion-body">
+                    I avoid exposing private product names, unreleased tools, internal systems and client-specific implementation details. Public portfolio work focuses on patterns, outcomes and capability.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <a href="mailto:amir@webplace.co.il" class="btn btn-primary btn-lg">
+            <i class="bi bi-envelope-open"></i> Start the conversation
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>© <span id="year"></span> Amir Cabili. Built with ❤️ using HTML, SCSS & Bootstrap Icons. Version <strong>#0021</strong></p>
+    <p>© <span id="year"></span> Amir Cabili. Built with HTML, SCSS & Bootstrap Icons. Version <strong>#0022</strong></p>
   </footer>
 
   <script>
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) body.dataset.theme = savedTheme;
-    themeToggle.innerHTML = body.dataset.theme === 'dark' ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
+
+    if (savedTheme) {
+      body.dataset.theme = savedTheme;
+    }
+
+    themeToggle.innerHTML = body.dataset.theme === 'dark'
+      ? '<i class="bi bi-sun"></i>'
+      : '<i class="bi bi-moon"></i>';
 
     themeToggle.addEventListener('click', () => {
       const isDark = body.dataset.theme === 'dark';
       body.dataset.theme = isDark ? 'light' : 'dark';
       localStorage.setItem('theme', body.dataset.theme);
-      themeToggle.innerHTML = isDark ? '<i class="bi bi-moon"></i>' : '<i class="bi bi-sun"></i>';
+      themeToggle.innerHTML = isDark
+        ? '<i class="bi bi-moon"></i>'
+        : '<i class="bi bi-sun"></i>';
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
