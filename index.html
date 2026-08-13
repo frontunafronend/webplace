@@ -1,587 +1,405 @@
 <!doctype html>
-<!-- Version: #0022 | CV 2026 v1 refresh: AI integration + robust homepage -->
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="description" content="Amir Cabili — Senior Front-End Developer, Tech Lead, and AI Integration Specialist. Angular 17+, TypeScript, OpenAI APIs, and robust enterprise web systems."/>
-  <title>Amir Cabili — Senior Front-End Developer, Tech Lead & AI Integration Specialist</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #0d1117;
-      --text-dark: #ffffff;
-      --bg-light: #f8f9fa;
-      --text-light: #000000;
-      --primary: #60a5fa;
-      --accent: #a78bfa;
-    }
-    body { transition: background-color .4s, color .4s; font-family: 'Inter', system-ui, sans-serif; }
-    body[data-theme="dark"] { background-color: var(--bg-dark); color: var(--text-dark); }
-    body[data-theme="light"] { background-color: var(--bg-light); color: var(--text-light); }
-
-    header.navbar { position: sticky; top: 0; z-index: 1000; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(10px); }
-    header.navbar a { color: #ffffff; text-decoration: none; margin: 0 10px; font-weight: 500; }
-    header.navbar a:hover { color: var(--primary); }
-
-    .theme-toggle { border: none; background: none; color: #ffffff; font-size: 1.2rem; cursor: pointer; }
-
-    .hero { text-align: left; padding: 5rem 1rem; background: linear-gradient(160deg, rgba(96,165,250,.15), rgba(167,139,250,.15)); border-radius: 20px; margin: 2rem auto; color: var(--text-dark); }
-.hero h1 { font-size: 3rem; font-weight: 900; background: linear-gradient(90deg, #ffffff, #a3bffa); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.hero .lead { font-size: 1.125rem; color: var(--primary); }
-.hero-img { width: 100%; height: auto; border-radius: 16px; display:block; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
-    .hero h1 { font-size: 3.5rem; font-weight: 900; background: linear-gradient(90deg, #ffffff, #a3bffa); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero p.lead { font-size: 1.25rem; color: var(--primary); text-shadow: 0 0 8px rgba(0,0,0,0.4); }
-
-    .card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; transition: transform .3s ease; color: var(--text-dark); overflow: hidden; }
-    body[data-theme="light"] .card { background: #ffffff; border-color: rgba(0,0,0,.1); color: #000000; }
-    .card:hover { transform: translateY(-6px); }
-
-    h2, h5, p, li { color: var(--text-dark); }
-
-    .tech { margin-top:.4rem; }
-    .tech .badge { margin: 2px 4px 0 0; }
-
-    footer { color: #ffffff; font-size: .9rem; border-top: 1px solid rgba(255,255,255,.1); text-align: center; padding: 2rem 0; margin-top: 3rem; }
-    body[data-theme="light"] footer { color: #000000; border-color: rgba(0,0,0,.1); }
-
-    section.section-bg { background: url('https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; background-attachment: fixed; }
-
-    /* Experience images */
-    .exp-img { width: 100%; height: 150px; object-fit: cover; object-position: center; display:block; filter:saturate(1.05); }
-    .exp-title { display:flex; align-items:center; gap:.5rem; margin-top:.5rem; }
-    .exp-title i{ color: var(--primary); }
-      /* Light theme text overrides: force all copy to black */
-    body[data-theme="light"] h1,
-    body[data-theme="light"] h2,
-    body[data-theme="light"] h3,
-    body[data-theme="light"] h4,
-    body[data-theme="light"] h5,
-    body[data-theme="light"] h6,
-    body[data-theme="light"] p,
-    body[data-theme="light"] li,
-    body[data-theme="light"] a,
-    body[data-theme="light"] .hero { color: var(--text-light) !important; }
-
-    /* Navbar readable in light mode */
-    body[data-theme="light"] header.navbar { background-color: rgba(255,255,255,0.9); }
-    body[data-theme="light"] header.navbar a,
-    body[data-theme="light"] .theme-toggle { color: #000000 !important; }
-
-    /* Override utility classes that force light text */
-    body[data-theme="light"] .text-light { color: var(--text-light) !important; }
-
-    /* Dark mode styling for FAQ accordion */
-    body[data-theme="dark"] .accordion-item { background-color: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); }
-    body[data-theme="dark"] .accordion-button { background-color: rgba(255,255,255,.04); color: var(--text-dark); }
-    body[data-theme="dark"] .accordion-button:not(.collapsed) { background-color: rgba(255,255,255,.08); color: var(--text-dark); box-shadow: inset 0 -1px 0 rgba(255,255,255,.12); }
-    body[data-theme="dark"] .accordion-body { color: var(--text-dark); }
-    body[data-theme="dark"] .accordion-button::after { filter: invert(1); }
-    
-</style>
+  <title>Amir Cabili: Angular, React and AI Systems | Tel Aviv</title>
+  <meta name="description" content="Amir Cabili, Tel Aviv. Senior front-end, tech lead, and AI integration specialist. Angular 17+, React/MERN, and OpenAI-powered product systems for cybersecurity, fintech, and banking."/>
+  <meta name="theme-color" content="#F4C400"/>
+  <link rel="canonical" href="https://www.webplace.co.il/"/>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.webplace.co.il/"/>
+  <meta property="og:title" content="Amir Cabili: Angular, React and AI Systems"/>
+  <meta property="og:description" content="A storyboard of the practice: Angular 17+, React/MERN, and AI systems, from banking and fintech to cybersecurity."/>
+  <meta property="og:image" content="https://www.webplace.co.il/images/atelier/cover-still.webp"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Big+Shoulders+Display:wght@700;800;900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/practice.css"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amir Cabili",
+    "jobTitle": "Senior Front-End Developer, Tech Lead & AI Integration Specialist",
+    "url": "https://www.webplace.co.il/",
+    "email": "mailto:amircabili@hotmail.com",
+    "telephone": "+972-54-690-2616",
+    "address": { "@type": "PostalAddress", "addressLocality": "Tel Aviv", "addressCountry": "IL" },
+    "sameAs": [
+      "https://github.com/amircabili",
+      "https://www.linkedin.com/in/amir-cabili-9275291b/"
+    ],
+    "knowsAbout": ["Angular", "React", "TypeScript", "OpenAI APIs", "AI systems", "Accessibility", "Design systems"]
+  }
+  </script>
 </head>
-<body data-theme="dark">
-  <header class="navbar navbar-expand-lg navbar-dark px-3">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold text-light" href="#"><i class="bi bi-code-slash"></i> Amir Cabili</a>
-      <div class="d-flex align-items-center ms-auto">
-        <a href="#about" class="me-3"><i class="bi bi-person"></i> About</a>
-        <a href="#highlights" class="me-3"><i class="bi bi-stars"></i> AI Systems</a>
-        <a href="#projects" class="me-3"><i class="bi bi-kanban"></i> Projects</a>
-        <a href="#experience" class="me-3"><i class="bi bi-briefcase"></i> Experience</a>
-        <a href="#github" class="me-3"><i class="bi bi-github"></i> GitHub</a>
-        <a href="#contactFAQ" class="me-3"><i class="bi bi-question-circle"></i> Q&amp;A</a>
-        <a href="#contact" class="me-3"><i class="bi bi-envelope"></i> Contact</a>
-        <button id="themeToggle" class="theme-toggle" aria-pressed="false" title="Toggle theme"><i class="bi bi-sun"></i></button>
-      </div>
+<body>
+  <!--
+    THESIS: A production storyboard of one practice — Angular, React, and AI systems as three concurrent scenes — refusing the dark-card developer portfolio.
+    OWN-WORLD: Kodak-box yellow and gaffer black on photographic gray card; Big Shoulders Display, Courier Prime scene headings, Atkinson Hyperlegible body; binder tabs, storyboard frames, slate sticks, china-marker credits.
+    STORY: A hiring manager understands Amir ships Angular 17+, React/MERN, and OpenAI-integrated systems in cybersecurity, fintech, and banking, then emails or downloads the CV.
+    FIRST VIEWPORT: Full-bleed yellow film-box cover, name at slate scale, three storyboard frames (Angular / React / AI) as the proof, primary action on the slate.
+    FORM: Film production binder / storyboard (grounded candidate 5), seed b7c56afa.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+  -->
+  <a class="skip" href="#cover">Skip to storyboard</a>
+
+  <header class="prod-bar">
+    <a class="mark" href="#cover">Cabili</a>
+    <p class="counter" id="scene-counter">SCENE 01  ·  COVER</p>
+    <div class="prod-actions">
+      <a href="https://github.com/amircabili" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/amir-cabili-9275291b/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="primary" href="Amir-Cabili-CV-2026.docx" download>CV</a>
     </div>
   </header>
 
-  <section class="hero text-light">
-    <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-6">
-          <h1>Building Robust Angular Platforms with AI-Powered Workflows</h1>
-          <p class="lead mb-2">Senior Front-End Developer, Tech Lead & AI Integration Specialist based in Tel Aviv</p>
-          <p class="mb-4">I design and ship enterprise-grade web systems using Angular 17+, TypeScript, SCSS, Node.js, and OpenAI-powered automation. Focus: scalable architecture, resilient UX, accessibility, and intelligent delivery pipelines.</p>
-          <div class="d-flex gap-2 flex-wrap">
-            <a href="#projects" class="btn btn-primary"><i class="bi bi-eye"></i> View Projects</a>
-            <a href="https://www.webplace.co.il/Amir-Cabili-cv.docx" class="btn btn-outline-light 111" download="Amir-Cabili---2026.docx" target="_blank" rel="noopener"><i class="bi bi-download"></i> Download CV</a>
-            <a href="https://github.com/amircabili" class="btn btn-outline-light" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
-            <a href="https://www.linkedin.com/in/amir-cabili-9275291b/" class="btn btn-outline-light" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> LinkedIn</a>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <img class="hero-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop" alt="Modern workspace with monitors and UI design — copyright‑free Unsplash" loading="eager" width="1200" height="800">
+  <nav class="binder" aria-label="Storyboard scenes">
+    <a href="#cover" aria-current="true">01 Cover</a>
+    <a href="#practice">02 Practice</a>
+    <a href="#story">03 Story</a>
+    <a href="#rooms">04 Rooms</a>
+    <a href="#qa">05 Table read</a>
+    <a href="#call">06 Call sheet</a>
+  </nav>
+
+  <main class="sheet">
+    <section class="scene scene-cover" id="cover" data-scene="01" data-title="COVER · THREE GELS">
+      <div class="slate">
+        <div class="slate-sticks" aria-hidden="true"><span class="stick stick-a"></span><span class="stick stick-b"></span></div>
+        <p class="place">Tel Aviv · תל אביב · English / Hebrew</p>
+        <h1>Amir Cabili</h1>
+        <p class="role">Senior Front-End Developer, Tech Lead &amp; AI Integration Specialist</p>
+        <p class="logline">INT. A DUAL-STACK PRACTICE — DAY. Angular 17+ and React/MERN in the same hands, with OpenAI-backed systems wired into real product work: cybersecurity, fintech, banking.</p>
+        <div class="slate-actions">
+          <a class="btn btn-ink" href="#practice">Open the storyboard</a>
+          <a class="btn btn-tape" href="Amir-Cabili-CV-2026.docx" download>Download CV</a>
+          <a class="btn btn-tape" href="mailto:amircabili@hotmail.com?subject=Project%20inquiry%20%E2%80%94%20webplace.co.il">Email Amir</a>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="storyboard-strip" aria-label="Three practices">
+        <a class="frame frame-angular" href="#practice">
+          <img src="images/atelier/frame-angular.webp" alt="Storyboard frame of an Angular enterprise workstation, ink and tungsten light" width="960" height="720"/>
+          <div class="gate" aria-hidden="true"></div>
+          <p class="frame-meta"><strong>Angular 17+</strong> Scene 02A · Enterprise platforms, signals, TypeScript</p>
+        </a>
+        <a class="frame frame-react" href="#practice">
+          <img src="images/atelier/frame-react.webp" alt="Storyboard frame of a React product being assembled as a physical kit" width="960" height="720"/>
+          <div class="gate" aria-hidden="true"></div>
+          <p class="frame-meta"><strong>React / MERN</strong> Scene 02B · Certified full-stack, Node, component systems</p>
+        </a>
+        <a class="frame frame-ai" href="#practice">
+          <img src="images/atelier/frame-ai.webp" alt="Storyboard frame of an AI workflow control room with human operator and fallback paths" width="960" height="720"/>
+          <div class="gate" aria-hidden="true"></div>
+          <p class="frame-meta"><strong>AI systems</strong> Scene 02C · OpenAI APIs, copilots, UI generation</p>
+        </a>
+      </div>
+    </section>
 
-  <!-- About / Summary -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-7">
-          <h2 class="mb-3"><i class="bi bi-person"></i> About Amir Cabili</h2>
-          <p class="mb-3">I’m a Senior Front-End Developer with 10+ years building high-impact products across cybersecurity, fintech, banking, and enterprise software. I specialize in Angular 17+, TypeScript, robust frontend architecture, and AI-enhanced product workflows.</p>
-          <ul class="mb-3">
-            <li><strong>AI Integration:</strong> OpenAI APIs, prompt engineering, AI copilots, and intelligent workflow systems.</li>
-            <li><strong>Leadership:</strong> Tech lead ownership, architecture decisions, and cross-functional execution.</li>
-            <li><strong>Quality:</strong> WCAG 2.1 AA implementation, scalable design systems, and performance-first engineering.</li>
+    <section class="scene scene-practice" id="practice" data-scene="02" data-title="PRACTICE · ANGULAR / REACT / AI">
+      <p class="scene-label">SCENE 02  ·  THE THREE GELS</p>
+      <h2 class="display">One operator. Three practices.</h2>
+      <p class="lede">This is not an Angular-only page. The work is a braid: Angular for dense enterprise product, React for MERN delivery, and AI systems that sit behind a real UI, with fallbacks, service boundaries, and a human still on the set.</p>
+
+      <div class="practice">
+        <input type="radio" name="practice" id="p-ng" checked>
+        <input type="radio" name="practice" id="p-re">
+        <input type="radio" name="practice" id="p-ai">
+        <div class="gels">
+          <label for="p-ng">Angular 17+<small>Gel A · tungsten red</small></label>
+          <label for="p-re">React / MERN<small>Gel B · cyan</small></label>
+          <label for="p-ai">AI systems<small>Gel C · kodak</small></label>
+        </div>
+
+        <article class="shot shot-ng">
+          <figure>
+            <img src="images/atelier/frame-angular.webp" alt="Angular practice storyboard still" width="960" height="720"/>
+          </figure>
+          <div class="shot-copy">
+            <h3>Enterprise Angular, current tense</h3>
+            <p class="prose">At Hub Security I lead front-end on Angular 17+ B2B systems: TypeScript, SCSS, Node, the unglamorous work of making a complex product feel inevitable. Standalone APIs, signals, RxJS where the domain is actually async, and architecture that a team can keep shipping after I leave the room.</p>
+            <ul>
+              <li>Angular 17+ with TypeScript, RxJS, and SCSS design tokens</li>
+              <li>Standalone components, route config, and incremental module migration</li>
+              <li>Data-heavy dashboards, filters, and resilient empty/error states</li>
+              <li>Tech-lead ownership: reviews, structure, and delivery against real constraints</li>
+            </ul>
+            <p class="credits">Angular 17+ · TypeScript · RxJS · SCSS · Node.js · Design tokens</p>
+          </div>
+        </article>
+
+        <article class="shot shot-re">
+          <figure>
+            <img src="images/atelier/frame-react.webp" alt="React practice storyboard still" width="960" height="720"/>
+          </figure>
+          <div class="shot-copy">
+            <h3>React is not a side note</h3>
+            <p class="prose">I am a certified MERN full-stack developer (Yaniv Arad College, 2022–2023). React is a working practice: component systems, Node services, Mongo where it belongs, and the same accessibility and performance bar I hold on Angular. When a product should be React, I do not force it into an Angular-shaped box.</p>
+            <ul>
+              <li>React, Node.js, Express, MongoDB. MERN as a shipped stack, not a course badge</li>
+              <li>Hooks, composition, and UI systems that can be documented and reused</li>
+              <li>MEAN and MERN both in the kit, so mixed estates are not a surprise</li>
+              <li>The same WCAG, performance, and review discipline as the Angular work</li>
+            </ul>
+            <p class="credits">React · Node.js · Express · MongoDB · TypeScript · Next-adjacent delivery</p>
+          </div>
+        </article>
+
+        <article class="shot shot-ai">
+          <figure>
+            <img src="images/atelier/frame-ai.webp" alt="AI systems storyboard still" width="960" height="720"/>
+          </figure>
+          <div class="shot-copy">
+            <h3>AI as infrastructure, not a demo</h3>
+            <p class="prose">At Hub Security the title is AI Integration Specialist for a reason. I design OpenAI-backed workflows into enterprise frontends: prompt systems, copilots, AI-assisted UI generation, and LLM automation in internal tools, always with a UI that still works when the model is slow, empty, or wrong.</p>
+            <ul>
+              <li>OpenAI APIs behind service boundaries. Keys never live in the browser</li>
+              <li>Prompt engineering and agentic workflows that a product team can operate</li>
+              <li>AI-assisted development and UI generation, reviewed like any other change</li>
+              <li>Fallback UX: loading, refusal, timeout, and “do it without the model”</li>
+            </ul>
+            <p class="credits">OpenAI APIs · Prompt systems · Copilots · Agentic workflows · LLM UX</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="scene scene-story" id="story" data-scene="03" data-title="STORY · THE REEL">
+      <div class="page">
+        <p class="scene-label">SCENE 03  ·  THE REEL</p>
+        <h2 class="display">A career told as production, not a badge wall.</h2>
+        <p class="lede">Two decades of interfaces that had to work on the day they shipped: advertising, events, banking, trading-adjacent marketing, cybersecurity. The later reels add React and AI. The early reels are why the later ones hold.</p>
+        <ol class="screenplay">
+          <li class="now">
+            <div class="year">2024–</div>
+            <div>
+              <p class="slug">INT. HUB SECURITY (BLACK SWAN) — CYBERSECURITY PRODUCT — DAY</p>
+              <p class="action">Senior Front-End Developer, Tech Lead &amp; AI Integration Specialist. Angular 17+, TypeScript, Node, SCSS. OpenAI APIs, prompt systems, copilots, and AI-assisted UI generation inside B2B product and internal tools. The current picture: lead the front-end, keep the AI layer honest.</p>
+              <p class="action"><a href="https://hubsecurity.com/" target="_blank" rel="noopener">hubsecurity.com</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="year">2022–24</div>
+            <div>
+              <p class="slug">INT. ETORO MARKETING — FINTECH — DAY</p>
+              <p class="action">Senior Front-End Developer. Angular 16+, TypeScript, Node, Bootstrap/SCSS. Marketing systems, landing pages, email-adjacent web, and mobile-responsive platforms that have to look right in every browser the market actually uses.</p>
+              <p class="action"><a href="https://www.etoro.com/" target="_blank" rel="noopener">etoro.com</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="year">2017–22</div>
+            <div>
+              <p class="slug">INT. AMAN GROUP — BANKING &amp; ENTERPRISE — YEARS</p>
+              <p class="action">Senior Web Client Developer. Angular 1.5 through Angular 12+, TypeScript, complex multi-user financial platforms. Client work including Discount Bank Israel. Long-form product: the kind of UI that accountants, bankers, and operators live in all day.</p>
+              <p class="action"><a href="https://www.aman.co.il/" target="_blank" rel="noopener">aman.co.il</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="year">2016–17</div>
+            <div>
+              <p class="slug">INT. MATRIX DIGITAL — CLIENT DELIVERY — DAY</p>
+              <p class="action">Senior Web Client Developer. HTML, CSS, Bootstrap/SASS, JavaScript, jQuery, .NET/C#. Agency tempo, client constraints, shipping on other people’s calendars.</p>
+              <p class="action"><a href="https://www.matrix.co.il/" target="_blank" rel="noopener">matrix.co.il</a></p>
+            </div>
+          </li>
+          <li>
+            <div class="year">2010–14</div>
+            <div>
+              <p class="slug">EXT. TEL AVIV PRODUCTION HOUSES — EARLIER REELS</p>
+              <p class="action">Kenes International: web developer, event dashboards, multilingual UI. Zarmon Goldman DDB: webmaster / designer-programmer, campaign landing pages, motion, brand. Ness SES: front-end on HTML, SCSS, ASP.NET. The craft years: production, not theory.</p>
+            </div>
+          </li>
+          <li>
+            <div class="year">1997–00</div>
+            <div>
+              <p class="slug">INT. IDF — TEL HASHOMER INFORMATION CENTER — DAY</p>
+              <p class="action">Project Manager, Information Center of the Tel Hashomer Recruitment Bureau. Systems, people, and information under pressure. The first production office.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="scene" id="rooms" data-scene="04" data-title="ROOMS · SELECTED SETS">
+      <p class="scene-label">SCENE 04  ·  SELECTED SETS</p>
+      <h2 class="display">Rooms I have actually worked in.</h2>
+      <p class="lede">Enterprise work is mostly private. These are not case-study metrics. They are the sets: what kind of product, which stack, which constraints. Illustrations are production stills, not screenshots of client systems.</p>
+      <div class="rooms">
+        <article class="room">
+          <img src="images/atelier/room-security.webp" alt="Illustrated cybersecurity product war-room, analog film lighting" width="1280" height="720"/>
+          <div class="room-copy">
+            <p class="slug">SET 01 · CYBERSECURITY</p>
+            <h3>Hub Security</h3>
+            <p>B2B web applications on Angular 17+. AI-integrated infrastructure: OpenAI APIs, prompt optimization, copilots, intelligent UI generation. Tech-lead ownership of the front-end so the AI layer has a product to land in.</p>
+            <p class="credits">Angular 17+ · TypeScript · OpenAI · SCSS · Node</p>
+          </div>
+        </article>
+        <article class="room">
+          <img src="images/atelier/room-fintech.webp" alt="Illustrated fintech marketing studio with abstract charts" width="1280" height="720"/>
+          <div class="room-copy">
+            <p class="slug">SET 02 · FINTECH MARKETING</p>
+            <h3>eToro</h3>
+            <p>In-house marketing platforms: landing pages, web-based tools, mobile-responsive sites. Angular 16+, TypeScript, Node. Cross-browser, cross-device, the unforgiving surface of a public brand.</p>
+            <p class="credits">Angular 16+ · TypeScript · SCSS · Node · Responsive web</p>
+          </div>
+        </article>
+        <article class="room">
+          <img src="images/atelier/room-bank.webp" alt="Illustrated banking platform workbench with dense forms" width="1280" height="720"/>
+          <div class="room-copy">
+            <p class="slug">SET 03 · BANKING</p>
+            <h3>Aman Group · Discount Bank</h3>
+            <p>Multi-user financial web applications for local banks, including Discount Bank Israel. Angular across major version jumps. The long job: keep a living system coherent while the stack underneath it changes.</p>
+            <p class="credits">Angular 1.5 → 12+ · TypeScript · Complex financial UI</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="page page-follow">
+        <h3 class="display display-s">Training that is on the call sheet</h3>
+        <p class="lede">Not a trophy wall. The certificates that changed what I could take onto a set.</p>
+        <div class="stamps">
+          <p class="stamp"><strong>Software architecture</strong><span>DevOps Experts College · 2024</span></p>
+          <p class="stamp"><strong>MERN full-stack</strong><span>React &amp; Node.js · Yaniv Arad College · 2022–2023</span></p>
+          <p class="stamp"><strong>C# &amp; .NET</strong><span>Jon Bryce College · 2010–2012</span></p>
+          <p class="stamp"><strong>Webmaster / .NET</strong><span>Jon Bryce College · 2008–2009</span></p>
+          <p class="stamp"><strong>Interactive web design</strong><span>SELA College · 2007</span></p>
+          <p class="stamp"><strong>Software development</strong><span>SELA College · 2001–2004</span></p>
+          <p class="stamp"><strong>Management &amp; CS</strong><span>Open University of Israel</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene-qa" id="qa" data-scene="05" data-title="TABLE READ · 20 QUESTIONS">
+      <p class="scene-label">SCENE 05  ·  TABLE READ</p>
+      <h2 class="display">Twenty questions. Straight answers.</h2>
+      <p class="lede">A table read, not a FAQ accordion of marketing. Angular, React, and AI systems in the same conversation, because that is how the work actually shows up.</p>
+
+      <div class="qa">
+        <details open>
+          <summary><span class="q-no">Q01</span><span>How does a typical engagement start?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>A 30–45 minute discovery call: the product, the constraints, the stack you already have, and what “done” means. I come back with a short plan: milestones, risks, and what I would actually build first. No theatre. If I am the wrong person, I say so.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q02</span><span>Do you work in Angular, React, or both?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Both. Current day-job depth is Angular 17+ as tech lead at Hub Security. React is a certified, working practice: MERN full-stack (React, Node, Express, MongoDB). MEAN and MERN are both in the kit. I will not pretend a React product should be rewritten in Angular to match my comfort.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q03</span><span>How do you choose Angular vs React for a new product?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>I start from the team you can hire, the estate you already run, and the kind of UI. Dense, long-lived enterprise with strong typing and a batteries-included platform often wants Angular. Product surfaces that want a thin runtime, a React-shaped talent pool, or a Node-native full stack often want React. The wrong reason is “what the last agency used.”</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q04</span><span>What does “AI systems” mean in your day-to-day work?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Not a ChatGPT tab. At Hub Security it means OpenAI APIs in the architecture: prompt systems, copilots, AI-assisted UI generation, LLM automation in internal tools, and the frontend contracts around them (loading, refusal, timeout, review, and a path that still works when the model is down).</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q05</span><span>How do you put OpenAI APIs into an enterprise frontend without leaking secrets?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>The browser never holds the key. Calls go through a service you own, with auth, rate limits, logging that strips PII, and a schema for what the model is allowed to return. The UI treats the model as an unreliable dependency: typed responses, timeouts, and a manual fallback. Prompt text is product code, versioned, not a string in a ticket.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q06</span><span>What does your Angular 17+ practice actually look like?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Standalone components, route config, functional providers, signals where they clarify, RxJS where the domain is a stream. Incremental module → standalone migration rather than a weekend rewrite. Strict TypeScript. Change-detection hygiene. The point is a system a team can keep, not a demo of the newest API.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q07</span><span>What does your React / MERN practice look like?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>React on the client, Node/Express on the server, Mongo when the data shape wants it. Hooks and composition over ceremony. Shared UI as a small system, not a folder of one-off components. TypeScript preferred. The MERN diploma (2022–2023) is the formal layer; the professional layer is the same review bar I use on Angular: a11y, performance, and boringly clear PRs.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q08</span><span>How do you use AI for UI generation without shipping generic interfaces?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Generation is a first draft, never a ship button. I keep tokens, constraints, and examples in the prompt so the model copies your system, not the internet’s average dashboard. Then a human review: spacing, copy, focus order, empty states. If it looks like every other AI layout, it failed. Rewrite it or throw it away.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q09</span><span>Can you run a design system across Angular and React?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Yes, if you treat tokens as the contract and components as adapters. Color, type, space, and motion live in a language both stacks can consume (CSS variables / SCSS). Each framework gets primitives in its own idiom (Angular standalone components, React function components), documented in Storybook. Do not share a single runtime component across both unless you have a very good reason.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q10</span><span>How do you make accessibility survive a real delivery schedule?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>It is in the definition of done, not a phase at the end. Semantic HTML first, ARIA only when the HTML is not enough, visible focus, keyboard paths, name/role/value. axe and Lighthouse as CI smoke, plus manual NVDA or VoiceOver on the journeys that matter. This page is set in Atkinson Hyperlegible for the same reason I argue for WCAG 2.1 AA on product work: reading is the product.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q11</span><span>Performance: Angular change detection vs React rendering. How do you budget?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Same budgets, different knobs. LCP, CLS, INP as the public numbers. On Angular: OnPush/signals, trackBy, lazy routes, less work in templates. On React: memo where it earns its keep, lists that do not re-render a city, split the bundles you actually load. Images in modern formats, fonts with display swap, no hero video pretending to be atmosphere.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q12</span><span>State management: signals, NgRx, React Query. When?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Local UI state stays local. Server state wants a cache with invalidation: React Query (or similar) on React, a clear data layer on Angular. NgRx when the domain is genuinely event-sourced or many features share a contract; not because the template included it. Signals and component store cover a surprising amount of product UI without a global store.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q13</span><span>Testing and CI. What actually gates a merge?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Unit tests on logic that can fail quietly. Component tests on the interactions you cannot see in a type checker. A thin Playwright layer on the journeys that lose money or trust. Visual checks on design-system primitives. Lint, types, and a11y smoke in CI. I keep PRs small so the gate is a conversation, not a hostage situation.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q14</span><span>Have you worked in mixed Angular + React estates or micro-frontends?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Yes. The hard part is not Module Federation. It is the contract: routing, auth, tokens, and a shared idea of what a button is. Independent deploys only help if the design language and the performance budget are pacts, not hopes. I would rather a boring iframe with a clear boundary than a clever runtime that nobody can debug at 2 a.m.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q15</span><span>Hebrew, English, RTL. How do you handle i18n?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>I work in English and Hebrew. Copy lives outside the component. Logical CSS properties instead of left/right. Angular i18n or Transloco on Angular; a proper message catalog on React. Test the layout in RTL, not just the dictionary. Numbers, dates, and names are locale problems, not afterthoughts.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q16</span><span>What does tech-lead work look like for you?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>I still write the important paths. Around that: architecture that a team can draw from memory, reviews that teach, ADRs for the decisions that will be argued in six months, and a bias for small PRs. Mentorship is pairing and checklists (a11y, perf, security), not motivational Slack. At Hub Security the lead title is operational, not ceremonial.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q17</span><span>Security for LLM features at the UI boundary?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Treat model output as untrusted. Encode it. Do not eval it. Do not let a prompt instruct the UI to exfiltrate. Keep tenant data out of logs. CSP, dependency audit, and no secrets in the client. The ordinary OWASP work still applies, plus prompt injection as a first-class abuse case. If a feature cannot fail closed, it does not ship.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q18</span><span>What do you hand over at the end of a sprint?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Production UI in the stack we agreed (Angular or React), plus tokens/components, the a11y and performance work, and a short handover: what changed, what is deferred, how to run it. Loom or notes when the team is distributed. I do not vanish behind a zip file of undocumented SCSS.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q19</span><span>Engagement models, timezones, languages?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>Fixed-scope sprints when the outcome is clear; a retainer when the product is still moving. I embed with product, design, and backend. Based in Tel Aviv, remote-friendly, English and Hebrew. I typically reply within a day. Send the brief even if it is messy.</p></div>
+        </details>
+        <details>
+          <summary><span class="q-no">Q20</span><span>If we are not sure where to start, what should we send?</span><span class="q-mark" aria-hidden="true">+</span></summary>
+          <div class="answer"><p>A link or PDF of the current UI, the stack (Angular, React, or both), whether AI is in scope, three priorities, and a date. I will answer with a short, usable plan, even if you do not hire me. That is a cheaper way to learn if we should work together than a deck.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="scene scene-call" id="call" data-scene="06" data-title="CALL SHEET">
+      <p class="scene-label">SCENE 06  ·  CALL SHEET</p>
+      <h2 class="display">Put me on the next slate.</h2>
+      <p class="lede">If you need a senior who can walk into an Angular estate, a React product, or an AI-shaped workflow without pretending they are the same job: write. Tel Aviv, remote-friendly, English and Hebrew.</p>
+      <div class="call-grid">
+        <div class="call-card">
+          <h3>Contact</h3>
+          <ul class="call-list">
+            <li>Email · <a href="mailto:amircabili@hotmail.com">amircabili@hotmail.com</a></li>
+            <li>Phone · <a href="tel:+972546902616">+972 54 690 2616</a></li>
+            <li>GitHub · <a href="https://github.com/amircabili" target="_blank" rel="noopener">github.com/amircabili</a></li>
+            <li>LinkedIn · <a href="https://www.linkedin.com/in/amir-cabili-9275291b/" target="_blank" rel="noopener">amir-cabili</a></li>
+            <li>Studio · Tel Aviv, Israel</li>
           </ul>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="badge bg-primary">Angular 17+</span>
-            <span class="badge bg-primary">TypeScript</span>
-            <span class="badge bg-primary">RxJS</span>
-            <span class="badge bg-primary">SCSS</span>
-            <span class="badge bg-primary">Design System</span>
-            <span class="badge bg-primary">A11y</span>
-            <span class="badge bg-primary">OpenAI APIs</span>
-            <span class="badge bg-primary">Prompt Engineering</span>
-            <span class="badge bg-primary">AI Workflows</span>
+          <div class="cta-row">
+            <a class="btn btn-kodak" href="mailto:amircabili@hotmail.com?subject=Project%20inquiry%20%E2%80%94%20webplace.co.il">Email Amir</a>
+            <a class="btn btn-ghost" href="Amir-Cabili-CV-2026.docx" download>Download CV 2026</a>
           </div>
         </div>
-        <div class="col-lg-5">
-          <div class="card p-3 h-100 text-center">
-            <h5 class="mb-3"><i class="bi bi-award"></i> 2026 Profile Highlights</h5>
-            <ul class="text-start m-0">
-              <li>Senior Front-End Developer, Tech Lead & AI Integration Specialist</li>
-              <li>Built AI-assisted development and UI generation workflows</li>
-              <li>Integrated LLM automation into enterprise internal systems</li>
-              <li>Delivered robust Angular platforms for complex B2B products</li>
-              <li>Strong blend: architecture, UX, performance, and execution</li>
-            </ul>
-          </div>
+        <div class="call-card">
+          <h3>What to send</h3>
+          <ul class="call-list">
+            <li>The problem in two sentences</li>
+            <li>Angular, React, AI: which are in play</li>
+            <li>Users and the journeys that matter</li>
+            <li>Constraints: stack, timeline, access</li>
+            <li>What good looks like in 90 days</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Value Propositions / What I Do -->
-  <section id="highlights" class="py-5">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card p-3 h-100">
-            <h5 class="mb-2"><i class="bi bi-cpu"></i> AI Application Architecture</h5>
-            <p class="m-0">Design and integration of AI-powered frontend infrastructure using OpenAI APIs, secure service boundaries, and reliable UX fallback strategies.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3 h-100">
-            <h5 class="mb-2"><i class="bi bi-magic"></i> AI-Assisted Delivery</h5>
-            <p class="m-0">Prompt engineering, AI copilots, and agentic workflows that accelerate design-to-code, implementation reviews, and iteration quality.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3 h-100">
-            <h5 class="mb-2"><i class="bi bi-shield-check"></i> Robust by Design</h5>
-            <p class="m-0">Enterprise-ready frontend systems with resilient UX, clear observability, accessibility standards, and maintainable architecture under real-world constraints.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="section py-5 section-bg">
-    <div class="container bg-dark bg-opacity-75 rounded-4 p-4">
-      <h2 class="text-center mb-4 text-light"><i class="bi bi-kanban"></i> Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card p-3 text-center">
-            <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded mb-3" alt="Enterprise dashboard" loading="lazy" width="720" height="480"/>
-            <i class="bi bi-laptop display-6 text-primary"></i>
-            <h5>Enterprise Dashboard</h5>
-            <ul class="text-start mt-2">
-              <li>Angular 17+ with advanced filters</li>
-              <li>Responsive analytics UI</li>
-              <li>Performance-optimized charts</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3 text-center">
-            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded mb-3" alt="Mobile PWA mockups" loading="lazy" width="720" height="480" onerror="this.src='https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=800&auto=format&fit=crop'"/>
-            <i class="bi bi-phone display-6 text-primary"></i>
-            <h5>Mobile Portal</h5>
-            <ul class="text-start mt-2">
-              <li>PWA with offline-first UX</li>
-              <li>Cross-device optimization</li>
-              <li>Session caching & sync</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3 text-center">
-            <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?q=80&w=800&auto=format&fit=crop" class="img-fluid rounded mb-3" alt="Design system components" loading="lazy" width="720" height="480"/>
-            <i class="bi bi-palette display-6 text-primary"></i>
-            <h5>Design System</h5>
-            <ul class="text-start mt-2">
-              <li>SCSS tokens & utilities</li>
-              <li>Custom Angular components</li>
-              <li>Unified dark/light themes</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience with elegant office photos (Unsplash, free to use) -->
-  <section id="experience" class="section py-5">
-    <div class="container">
-      <h2 class="text-center mb-4"><i class="bi bi-briefcase"></i> Experience</h2>
-      <div class="row g-4">
-        <!-- 1 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop" alt="Modern office meeting room" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-diagram-3"></i><h5 class="m-0">Hub Security — Senior Front-End Developer, Tech Lead & AI Integration Specialist</h5></div>
-              <ul class="mt-2"><li>Angular 17+ enterprise systems</li><li>OpenAI-powered workflow integration</li><li>AI-assisted UI generation & prompt optimization</li></ul>
-              <div class="tech"><span class="badge bg-primary">Angular 17+</span><span class="badge bg-primary">TypeScript</span><span class="badge bg-primary">OpenAI APIs</span><span class="badge bg-primary">AI Workflows</span><span class="badge bg-primary">SCSS</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 2 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1529335764857-3f1164d1cb24?q=80&w=1200&auto=format&fit=crop" alt="Product design collaboration" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-bezier2"></i><h5 class="m-0">Hub Security — UI/UX Specialist</h5></div>
-              <ul class="mt-2"><li>Data-driven dashboards</li><li>Usability & A11y</li><li>Design tokens</li></ul>
-              <div class="tech"><span class="badge bg-primary">Figma</span><span class="badge bg-primary">Design Tokens</span><span class="badge bg-primary">A11y</span><span class="badge bg-primary">Angular</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 3 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1518182170549-5881dcesf?ixlib=rb-4.0.3&q=80&w=1200&auto=format&fit=crop" alt="Trading floor monitors" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop'">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-graph-up"></i><h5 class="m-0">eToro — Front-End Engineer</h5></div>
-              <ul class="mt-2"><li>Real-time dashboards</li><li>Optimized pipelines</li><li>-35% render lag</li></ul>
-              <div class="tech"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">NgRx</span><span class="badge bg-primary">RxJS</span><span class="badge bg-primary">WebSockets</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 4 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Developers at laptops" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-universal-access"></i><h5 class="m-0">eToro — Accessibility Specialist</h5></div>
-              <ul class="mt-2"><li>WCAG 2.1 AA audits</li><li>ARIA patterns</li><li>Keyboard navigation</li></ul>
-              <div class="tech"><span class="badge bg-primary">WCAG</span><span class="badge bg-primary">ARIA</span><span class="badge bg-primary">Keyboard</span><span class="badge bg-primary">Testing</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 5 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Team planning at table" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-layers"></i><h5 class="m-0">Aman Group — UI/UX Specialist</h5></div>
-              <ul class="mt-2"><li>Component library</li><li>UI consistency</li><li>Figma workflows</li></ul>
-              <div class="tech"><span class="badge bg-primary">SCSS</span><span class="badge bg-primary">Bootstrap</span><span class="badge bg-primary">UX</span><span class="badge bg-primary">Design System</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 6 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1200&auto=format&fit=crop" alt="Workshop with sticky notes" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-shield-check"></i><h5 class="m-0">Aman Group — Accessibility Lead</h5></div>
-              <ul class="mt-2"><li>WCAG AA compliance</li><li>Accessible patterns</li><li>Inclusive reviews</li></ul>
-              <div class="tech"><span class="badge bg-primary">WCAG</span><span class="badge bg-primary">ARIA</span><span class="badge bg-primary">Lighthouse</span><span class="badge bg-primary">Screen Readers</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 7 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Data visualization on monitors" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-cpu"></i><h5 class="m-0">Matrix Digital — Front-End Dev</h5></div>
-              <ul class="mt-2"><li>Modular dashboards</li><li>D3 visualizations</li><li>Faster delivery</li></ul>
-              <div class="tech"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">D3.js</span><span class="badge bg-primary">TypeScript</span><span class="badge bg-primary">SCSS</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 8 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" alt="Design studio desk" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-brush"></i><h5 class="m-0">Matrix Digital — UI/UX Expert</h5></div>
-              <ul class="mt-2"><li>Design systems</li><li>Style guides</li><li>Brand consistency</li></ul>
-              <div class="tech"><span class="badge bg-primary">Design System</span><span class="badge bg-primary">Color</span><span class="badge bg-primary">Typography</span><span class="badge bg-primary">Audit</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 9 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" alt="Conference hall setup" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-translate"></i><h5 class="m-0">Kenes Group — Web Developer</h5></div>
-              <ul class="mt-2"><li>Event dashboards</li><li>Multilingual UI</li><li>Load optimization</li></ul>
-              <div class="tech"><span class="badge bg-primary">HTML</span><span class="badge bg-primary">CSS</span><span class="badge bg-primary">JavaScript</span><span class="badge bg-primary">i18n</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 10 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="Creative agency workspace" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-megaphone"></i><h5 class="m-0">Zarmon Advertising — FE Designer</h5></div>
-              <ul class="mt-2"><li>Ad landing pages</li><li>Micro-animations</li><li>Brand visuals</li></ul>
-              <div class="tech"><span class="badge bg-primary">CSS Animations</span><span class="badge bg-primary">GSAP</span><span class="badge bg-primary">Photoshop</span><span class="badge bg-primary">Branding</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 11 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1200&auto=format&fit=crop" alt="Freelance home office" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-rocket-takeoff"></i><h5 class="m-0">Freelance — Senior Front-End</h5></div>
-              <ul class="mt-2"><li>30+ SaaS apps</li><li>SEO & performance</li><li>Pixel-perfect UI</li></ul>
-              <div class="tech"><span class="badge bg-primary">Angular</span><span class="badge bg-primary">React</span><span class="badge bg-primary">Next.js</span><span class="badge bg-primary">Vercel</span><span class="badge bg-primary">Netlify</span></div>
-            </div>
-          </div>
-        </div>
-        <!-- 12 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img class="exp-img" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Open source coding" loading="lazy">
-            <div class="p-3">
-              <div class="exp-title"><i class="bi bi-git"></i><h5 class="m-0">Open Source & Certifications</h5></div>
-              <ul class="mt-2"><li>Angular tooling & SCSS libs</li><li>Reusable components</li><li>B.Sc. CS (HCI), UX/UI</li></ul>
-              <div class="tech"><span class="badge bg-primary">Git</span><span class="badge bg-primary">CI</span><span class="badge bg-primary">npm</span><span class="badge bg-primary">ESLint</span><span class="badge bg-primary">HCI</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="github" class="section py-5">
-    <div class="container">
-      <h2 class="text-center mb-4"><i class="bi bi-github"></i> GitHub & Public Work</h2>
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card p-4 h-100">
-            <h5 class="mb-3">GitHub Profile</h5>
-            <p>Explore public repositories, frontend experiments, and implementation samples that complement this portfolio and CV.</p>
-            <a href="https://github.com/amircabili" class="btn btn-outline-light" target="_blank" rel="noopener"><i class="bi bi-box-arrow-up-right"></i> Open GitHub</a>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card p-4 h-100">
-            <h5 class="mb-3">AI + Frontend Focus</h5>
-            <p>Public work reflects the same direction as my recent enterprise role: robust Angular systems enhanced with practical AI-assisted engineering workflows.</p>
-            <a href="https://www.webplace.co.il" class="btn btn-outline-light" target="_blank" rel="noopener"><i class="bi bi-globe"></i> View Portfolio</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section py-5">
-    <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="mb-2"><i class="bi bi-envelope"></i> Let's Build Something Great</h2>
-        <p class="lead m-0">Have an idea, a roadmap, or a messy legacy UI? I help teams turn vision into fast, accessible, production‑ready experiences.</p>
-      </div>
-
-      <div class="row g-4 align-items-stretch">
-        <!-- Primary CTA & Promise -->
-        <div class="col-lg-4">
-          <div class="card h-100 p-4">
-            <h5 class="mb-3"><i class="bi bi-rocket-takeoff"></i> Why teams reach out</h5>
-            <ul class="mb-4">
-              <li>Ship a polished MVP in weeks, not months</li>
-              <li>Uplift Core Web Vitals & Lighthouse 90+ targets</li>
-              <li>Design System setup: tokens, theming, docs</li>
-              <li>Complex Angular + RxJS data flows simplified</li>
-              <li>WCAG 2.1 AA accessibility across key journeys</li>
-            </ul>
-            <div class="d-grid gap-2">
-              <a href="mailto:amircabili@hotmail.com?subject=Project%20Inquiry%20—%20Webplace" class="btn btn-primary"><i class="bi bi-send"></i> Email Amir</a>
-              <a href="#" class="btn btn-outline-light" onclick="alert('Calendar link coming soon. Please email to book a slot.'); return false;"><i class="bi bi-calendar3"></i> Book a discovery call</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Services & Engagements -->
-        <div class="col-lg-4">
-          <div class="card h-100 p-4">
-            <h5 class="mb-3"><i class="bi bi-kanban"></i> Typical engagements</h5>
-            <ul class="mb-3">
-              <li>New product UI from zero → MVP</li>
-              <li>Dashboards with real‑time data & caching</li>
-              <li>PWA: offline‑first, installable, mobile‑tuned</li>
-              <li>Design System (docs, tokens, components)</li>
-              <li>Accessibility audits & fixes (WCAG 2.1 AA)</li>
-              <li>Performance budgets, profiling, and CI checks</li>
-            </ul>
-            <div class="small opacity-75">
-              <div><i class="bi bi-clock"></i> Typical response: <strong>within 24 hours</strong></div>
-              <div><i class="bi bi-geo"></i> Based in Tel Aviv • Remote friendly</div>
-              <div><i class="bi bi-translate"></i> English / Hebrew</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project Fit Checklist -->
-        <div class="col-lg-4">
-          <div class="card h-100 p-4">
-            <h5 class="mb-3"><i class="bi bi-check2-square"></i> What helps me help you</h5>
-            <ul class="mb-3">
-              <li>1–2 sentence problem statement</li>
-              <li>Target users & key journeys</li>
-              <li>Tech stack & constraints</li>
-              <li>Timeline, budget range, stakeholders</li>
-              <li>Success metrics (e.g., LCP, conversion, a11y)</li>
-            </ul>
-            <div class="d-flex gap-2 flex-wrap">
-              <a href="mailto:amircabili@hotmail.com?subject=Brief%20Attached&body=Hi%20Amir%2C%20here%27s%20our%20brief%20and%20timeline..." class="btn btn-outline-light"><i class="bi bi-paperclip"></i> Send a brief</a>
-              <a href="mailto:amircabili@hotmail.com?subject=Quick%20Question&body=Hi%20Amir%2C%20one%20question%3A%20..." class="btn btn-outline-light"><i class="bi bi-chat-dots"></i> Ask a quick question</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ / Details -->
-      <div class="row mt-4">
-        <div class="col-lg-10 mx-auto">
-          <div class="accordion" id="contactFAQ">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q1"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="true" aria-controls="a1">How does a typical project start?</button></h2>
-              <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">We kick off with a 30–45m discovery call to define scope, constraints, and success metrics. I then propose a short plan covering milestones, deliverables, and a lean timeline.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">What do you deliver?</button></h2>
-              <div id="a2" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Production‑ready UI (Angular/TypeScript/SCSS), documented components, accessibility fixes, performance improvements, and concise handover notes or Loom walkthroughs.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q3"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">Engagement models?</button></h2>
-              <div id="a3" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Fixed‑scope sprints for clear outcomes, or flexible retainers for ongoing delivery. I’m comfortable embedding with product/design/BE teams.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q4"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">Tooling & collaboration?</button></h2>
-              <div id="a4" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Git, CI, Jira/Linear, Figma, Storybook, and Slack. I document decisions, add tests where they matter, and keep PRs small for fast reviews.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q5"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">Not sure where to start?</button></h2>
-              <div id="a5" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Send a link or PDF of your current UI and 3 priorities. I’ll reply with a short, actionable plan you can use immediately.</div>
-              </div>
-            </div>
-            <!-- Added experience‑focused Q&A -->
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q6"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a6" aria-expanded="false" aria-controls="a6">What is your experience with Angular 16/17 and standalone APIs?</button></h2>
-              <div id="a6" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">I build new apps with standalone components, Route Config, and functional providers. Migration plans include incremental module → standalone adoption, strict typing, and zoneless change detection where feasible.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q7"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a7" aria-expanded="false" aria-controls="a7">How do you approach performance at scale?</button></h2>
-              <div id="a7" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">I set performance budgets (LCP, CLS, INP), lazy‑load routes, preconnect critical origins, optimize images (AVIF/WebP + responsive srcset), and profile change detection. I use RxJS operators to avoid needless re‑renders and ship prefetch strategies for hot paths.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q8"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a8" aria-expanded="false" aria-controls="a8">What’s your design system rollout plan?</button></h2>
-              <div id="a8" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Start with tokens (color/spacing/typography), build primitive components, add usage guidelines, and publish via Storybook + npm. I provide a migration doc and codemods to refactor legacy styles to tokenized SCSS utilities.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q9"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a9" aria-expanded="false" aria-controls="a9">How do you ensure accessibility (WCAG 2.1 AA)?</button></h2>
-              <div id="a9" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Semantic HTML, ARIA where appropriate, focus management, visible states, and keyboard‑first flows. I run axe, Lighthouse, and manual screen‑reader checks (NVDA/VoiceOver), with a backlog of a11y issues triaged by severity.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q10"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a10" aria-expanded="false" aria-controls="a10">Do you work with micro‑frontends?</button></h2>
-              <div id="a10" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Yes—Module Federation for independent deploys, shared UI libraries, and clear routing contracts. I add observability for cross‑app performance and a design‑token pact to keep UX consistent.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q11"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a11" aria-expanded="false" aria-controls="a11">State management preferences?</button></h2>
-              <div id="a11" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Start simple with signals/Component Store, move to NgRx for complex domains or cross‑cutting concerns. Strong typing, selector memoization, and clear action conventions keep data flows predictable.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q12"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a12" aria-expanded="false" aria-controls="a12">Testing strategy?</button></h2>
-              <div id="a12" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Unit tests for pure logic, component tests with Testing Library, and a slim E2E layer (Playwright) on critical journeys. I add visual regression for DS components and wire tests into CI gates.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q13"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a13" aria-expanded="false" aria-controls="a13">How do you run code reviews and mentorship?</button></h2>
-              <div id="a13" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Small PRs, clear checklists (a11y, perf, security), and constructive comments. I pair with devs, share snippets/patterns, and track recurring issues to evolve our guidelines.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q14"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a14" aria-expanded="false" aria-controls="a14">Security & privacy considerations?</button></h2>
-              <div id="a14" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">Follow OWASP ASVS basics: output encoding, CSP, dependency auditing, and secure storage. I avoid sensitive data in the client and review analytics to keep PII out of logs.</div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="q15"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a15" aria-expanded="false" aria-controls="a15">Internationalization & RTL?</button></h2>
-              <div id="a15" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
-                <div class="accordion-body">I use Angular i18n or Transloco, extract copy to JSON/XLIFF, and test locale‑aware formatting. Layout tokens plus logical properties ensure effortless LTR/RTL switching.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-5">
-        <a href="mailto:amircabili@hotmail.com" class="btn btn-primary btn-lg"><i class="bi bi-envelope-open"></i> Start the conversation</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© <span id="year"></span> Amir Cabili. Built with ❤️ using HTML, SCSS & Bootstrap Icons. Version <strong>#0022</strong></p>
+  <footer class="foot">
+    <span>© <span id="year">2026</span> Amir Cabili · webplace.co.il · Version 0030 · storyboard</span>
+    <span>Angular · React · AI systems · Tel Aviv</span>
   </footer>
 
-  <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) body.dataset.theme = savedTheme;
-    themeToggle.innerHTML = body.dataset.theme === 'dark' ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
-
-    themeToggle.addEventListener('click', () => {
-      const isDark = body.dataset.theme === 'dark';
-      body.dataset.theme = isDark ? 'light' : 'dark';
-      localStorage.setItem('theme', body.dataset.theme);
-      themeToggle.innerHTML = isDark ? '<i class="bi bi-moon"></i>' : '<i class="bi bi-sun"></i>';
-    });
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <canvas class="grain" id="grain" width="160" height="160" aria-hidden="true"></canvas>
+  <script src="js/practice.js" defer></script>
 </body>
 </html>
