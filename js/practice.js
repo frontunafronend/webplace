@@ -3,19 +3,79 @@
   const counter = document.getElementById("scene-counter");
   const tabs = [...document.querySelectorAll(".binder a")];
   const scenes = [...document.querySelectorAll(".scene[data-scene]")];
+  const langBtn = document.getElementById("lang-toggle");
+  const nav = document.querySelector(".binder");
+  const dicts = window.WEBPLACE_I18N || { en: {}, he: {} };
 
   document.body.classList.add(reduced ? "is-reduced" : "is-ready");
+
+  const storedLang = (() => {
+    try {
+      const q = new URLSearchParams(window.location.search).get("lang");
+      if (q === "he" || q === "en") return q;
+      const saved = localStorage.getItem("webplace-lang");
+      if (saved === "he" || saved === "en") return saved;
+    } catch {
+      /* ignore */
+    }
+    return "en";
+  })();
+
+  let currentLang = "en";
+  let currentSceneId = scenes[0] ? scenes[0].id : "cover";
+
+  const applyLang = (lang) => {
+    currentLang = lang === "he" ? "he" : "en";
+    const dict = dicts[currentLang] || {};
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = currentLang === "he" ? "rtl" : "ltr";
+    try {
+      localStorage.setItem("webplace-lang", currentLang);
+    } catch {
+      /* ignore */
+    }
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const value = dict[el.dataset.i18n];
+      if (value != null) el.textContent = value;
+    });
+    document.querySelectorAll("[data-title-key]").forEach((el) => {
+      const value = dict[el.dataset.titleKey];
+      if (value != null) el.dataset.title = value;
+    });
+    if (dict["meta.title"]) document.title = dict["meta.title"];
+    if (langBtn) {
+      langBtn.textContent = dict["lang.switch"] || (currentLang === "he" ? "English" : "עברית");
+      langBtn.setAttribute("aria-label", dict["lang.aria"] || "");
+    }
+    if (nav) {
+      nav.setAttribute("aria-label", currentLang === "he" ? "חלקי העמוד" : "Page sections");
+    }
+    const subject = encodeURIComponent(dict["mail.subject"] || "Project inquiry — webplace.co.il");
+    document.querySelectorAll("a[data-mail]").forEach((a) => {
+      a.href = `mailto:amircabili@hotmail.com?subject=${subject}`;
+    });
+    setCurrent(currentSceneId);
+  };
 
   const setCurrent = (id) => {
     const scene = scenes.find((s) => s.id === id) || scenes[0];
     if (!scene) return;
-    const n = scene.dataset.scene;
+    currentSceneId = scene.id;
     const title = scene.dataset.title;
-    if (counter) counter.textContent = `SCENE ${n}  ·  ${title}`;
+    if (counter) counter.textContent = title;
     tabs.forEach((tab) => {
       tab.setAttribute("aria-current", tab.getAttribute("href") === `#${scene.id}` ? "true" : "false");
     });
   };
+
+  if (langBtn) {
+    langBtn.addEventListener("click", () => {
+      applyLang(currentLang === "he" ? "en" : "he");
+    });
+  }
+
+  applyLang(storedLang);
 
   if ("IntersectionObserver" in window && scenes.length) {
     const io = new IntersectionObserver(
@@ -42,40 +102,4 @@
 
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
-
-  if (reduced) return;
-
-  const canvas = document.getElementById("grain");
-  if (!canvas || !canvas.getContext) return;
-  const ctx = canvas.getContext("2d", { alpha: true });
-  let running = true;
-  canvas.width = 160;
-  canvas.height = 160;
-
-  const tick = () => {
-    if (!running) return;
-    const { width, height } = canvas;
-    const image = ctx.createImageData(width, height);
-    const data = image.data;
-    for (let i = 0; i < data.length; i += 4) {
-      const v = Math.random() * 255;
-      data[i] = data[i + 1] = data[i + 2] = v;
-      data[i + 3] = 36;
-    }
-    ctx.putImageData(image, 0, 0);
-    window.setTimeout(() => requestAnimationFrame(tick), 140);
-  };
-
-  const cover = document.getElementById("cover");
-  const watch = new IntersectionObserver((entries) => {
-    running = entries.some((e) => e.isIntersecting);
-    if (running) tick();
-  });
-  if (cover) watch.observe(cover);
-  else tick();
-
-  document.addEventListener("visibilitychange", () => {
-    running = document.visibilityState === "visible";
-    if (running) tick();
-  });
 })();

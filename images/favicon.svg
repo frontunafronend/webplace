@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Amir Cabili">
-  <rect width="32" height="32" fill="#F4C400"/>
-  <rect x="5" y="5" width="22" height="3.2" fill="#12100C"/>
-  <rect x="5" y="11" width="22" height="16" fill="#12100C"/>
-  <rect x="8" y="15" width="10" height="2" fill="#F4C400"/>
-  <rect x="8" y="19" width="16" height="1.4" fill="#F4C400"/>
-  <rect x="8" y="22" width="12" height="1.4" fill="#F4C400"/>
+  <rect width="32" height="32" fill="#16324f"/>
+  <rect x="5" y="5" width="22" height="3.2" fill="#a07834"/>
+  <rect x="5" y="11" width="22" height="16" fill="#10263c"/>
+  <rect x="8" y="15" width="10" height="2" fill="#f6f0e6"/>
+  <rect x="8" y="19" width="16" height="1.4" fill="#2f6f74"/>
+  <rect x="8" y="22" width="12" height="1.4" fill="#2f6f74"/>
 </svg>
