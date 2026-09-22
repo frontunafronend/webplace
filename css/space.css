@@ -54,8 +54,6 @@ body {
   opacity: 0.55;
 }
 
-.prod-bar,
-.binder,
 .sheet,
 .foot {
   position: relative;
@@ -215,9 +213,11 @@ body {
 
 @media (max-width: 980px) {
   .binder {
+    position: sticky;
     background: #121a26;
     border-bottom-color: var(--line);
   }
+  .space-stars { opacity: 0.28; }
 }
 
 @media print {

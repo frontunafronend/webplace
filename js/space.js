@@ -15,13 +15,13 @@
 
   const seed = () => {
     stars.length = 0;
-    const quantity = Math.min(70, Math.floor((width * height) / 22000));
+    const quantity = Math.min(16, Math.floor((width * height) / 90000));
     for (let i = 0; i < quantity; i += 1) {
       stars.push({
         x: Math.random(),
         y: Math.random(),
-        r: Math.random() * 0.9 + 0.2,
-        a: Math.random() * 0.35 + 0.12
+        r: Math.random() * 0.7 + 0.15,
+        a: Math.random() * 0.22 + 0.08
       });
     }
   };
