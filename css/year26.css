@@ -41,8 +41,20 @@
 }
 
 .slate {
-  padding: 0.4rem 0.2rem 0.4rem 1rem;
+  padding-block: 0.4rem;
+  padding-inline-start: 1.15rem;
+  padding-inline-end: 0.35rem;
   max-width: none;
+}
+html[dir="rtl"] .slate {
+  padding-inline-start: 1.55rem;
+}
+html[dir="rtl"] .slate h1 {
+  margin-bottom: 0.85rem;
+}
+html[dir="rtl"] .role {
+  max-width: 48ch;
+  margin-bottom: 0.95rem;
 }
 .slate::before {
   inset-block: 0.35rem 0.35rem;
@@ -177,7 +189,8 @@
 .to-top {
   position: fixed;
   inset-block-end: 1.2rem;
-  inset-inline-end: 1.2rem;
+  left: 1.2rem;
+  right: auto;
   z-index: 45;
   width: 2.7rem;
   height: 2.7rem;
