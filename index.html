@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Heebo:wght@400;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/practice.css"/>
   <link rel="stylesheet" href="css/space.css?v=4"/>
-  <link rel="stylesheet" href="css/year26.css?v=6"/>
+  <link rel="stylesheet" href="css/year26.css?v=7"/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -165,13 +165,18 @@
             <img src="images/atelier/frame-ai.webp" alt="" width="960" height="720"/>
           </figure>
           <div class="shot-copy">
-            <h3 data-i18n="shot.ai.h">AI integrated into products</h3>
-            <p class="prose" data-i18n="shot.ai.p">At Hub Security I work as AI Integration Specialist. That means OpenAI APIs in the architecture: prompt systems, copilots, AI-assisted UI generation, and automation in internal tools. The interface still works when the model is slow, empty, or unavailable.</p>
+            <h3 data-i18n="shot.ai.h">AI integrated into product architecture</h3>
+            <p class="prose" data-i18n="shot.ai.p">At Hub Security I work as an AI Integration Specialist, designing AI capabilities as part of the product architecture rather than treating the model as a standalone feature. I integrate OpenAI APIs through secure backend services and design the surrounding system — prompt workflows, structured model interactions, copilots, AI-assisted UI generation, automation, validation, observability, and resilient user experiences.</p>
+            <p class="prose" data-i18n="shot.ai.p2">The architecture assumes that AI is non-deterministic and can be slow, unavailable, or return an unusable result. Model calls therefore sit behind controlled service boundaries with authentication, rate limits, validation, error handling, and explicit response contracts. The UI is designed around those realities, with loading, timeout, retry, review, fallback, and non-AI paths where the product requires them.</p>
+            <p class="prose" data-i18n="shot.ai.p3">My focus is not simply connecting an LLM to an interface. It is designing AI-enabled systems that remain secure, maintainable, observable, and usable in production.</p>
             <ul>
-              <li data-i18n="shot.ai.l1">OpenAI APIs behind a server boundary; keys are never in the browser</li>
-              <li data-i18n="shot.ai.l2">Prompt systems and workflows a product team can operate</li>
-              <li data-i18n="shot.ai.l3">AI-assisted development and UI generation, reviewed like any other change</li>
-              <li data-i18n="shot.ai.l4">Fallback states: loading, timeout, and a path without the model</li>
+              <li data-i18n="shot.ai.l1">Secure AI service architecture — OpenAI APIs behind authenticated server-side boundaries; credentials and privileged operations never exposed to the browser.</li>
+              <li data-i18n="shot.ai.l2">Prompt systems &amp; orchestration — structured prompts, reusable workflows, response contracts, validation, and application logic around model interactions.</li>
+              <li data-i18n="shot.ai.l3">AI product &amp; UI architecture — copilots, AI-assisted UI generation, automation, human review, and clear interaction patterns for probabilistic output.</li>
+              <li data-i18n="shot.ai.l4">Resilience &amp; graceful degradation — loading, streaming/waiting states, retries, timeouts, invalid or empty responses, service failures, and usable paths when the model is unavailable.</li>
+              <li data-i18n="shot.ai.l5">Security &amp; trust boundaries — model output treated as untrusted input, with controlled data flow, output handling, tenant-data protection, and prompt-injection awareness.</li>
+              <li data-i18n="shot.ai.l6">Observability &amp; operational control — model interactions designed so failures, latency, and unexpected responses can be understood and improved rather than becoming opaque production behavior.</li>
+              <li data-i18n="shot.ai.l7">AI-assisted engineering — AI-supported development and UI generation integrated into the engineering workflow, with generated output reviewed, tested, and held to the same quality standards as manually written code.</li>
             </ul>
             <p class="credits" data-i18n="shot.ai.c">OpenAI APIs · Prompt systems · Copilots · LLM user experience</p>
           </div>
@@ -463,8 +468,8 @@
     <span aria-hidden="true">↑</span>
   </button>
 
-  <script src="js/i18n.js?v=29"></script>
+  <script src="js/i18n.js?v=30"></script>
   <script src="js/space.js" defer></script>
-  <script src="js/practice.js?v=29" defer></script>
+  <script src="js/practice.js?v=30" defer></script>
 </body>
 </html>

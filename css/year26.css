@@ -155,6 +155,15 @@ html[dir="rtl"] .role {
 .practice:has(#p-be:checked) .shot-be {
   align-items: start;
 }
+.shot-ai .shot-copy .prose + .prose {
+  margin-top: 0.8rem;
+}
+.shot-ai .shot-copy ul {
+  margin-top: 1rem;
+}
+.shot-ai .shot-copy li {
+  margin: 0.5rem 0;
+}
 
 .stamps { gap: 0.6rem; }
 .stamp { padding: 0.8rem 0.9rem; }
