@@ -39,6 +39,10 @@
       const value = dict[el.dataset.i18n];
       if (value != null) el.textContent = value;
     });
+    document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+      const value = dict[el.dataset.i18nAria];
+      if (value != null) el.setAttribute("aria-label", value);
+    });
     document.querySelectorAll("[data-title-key]").forEach((el) => {
       const value = dict[el.dataset.titleKey];
       if (value != null) el.dataset.title = value;
@@ -102,4 +106,16 @@
 
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
+
+  const toTop = document.getElementById("to-top");
+  if (toTop) {
+    const toggleTop = () => {
+      toTop.classList.toggle("is-on", window.scrollY > 400);
+    };
+    toggleTop();
+    window.addEventListener("scroll", toggleTop, { passive: true });
+    toTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+    });
+  }
 })();

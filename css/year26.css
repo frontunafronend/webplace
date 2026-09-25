@@ -58,6 +58,30 @@
   max-width: 42ch;
   margin-bottom: 0.7rem;
 }
+.stack-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  min-width: 0;
+  width: 100%;
+}
+.stack-line li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #16202e;
+  color: var(--heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
 .logline {
   margin-bottom: 1.1rem;
   max-width: 54ch;
@@ -145,8 +169,43 @@
 }
 
 .prod-actions a,
-.lang-toggle {
+.lang-toggle,
+.to-top {
   border-radius: 999px;
+}
+
+.to-top {
+  position: fixed;
+  inset-block-end: 1.2rem;
+  inset-inline-end: 1.2rem;
+  z-index: 45;
+  width: 2.7rem;
+  height: 2.7rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: #16202e;
+  color: var(--heading);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.35rem);
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.to-top.is-on {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+.to-top:hover { background: #1d2a3b; }
+.to-top:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .to-top { transition: none; transform: none; }
 }
 
 @media (max-width: 1200px) {
@@ -155,7 +214,7 @@
 
 @media (max-width: 1100px) {
   .scene-cover {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.15rem;
   }
   .storyboard-strip {
@@ -166,7 +225,13 @@
 
 @media (max-width: 640px) {
   .scene-cover { padding: 1rem; }
-  .slate { padding-inline-start: 0.85rem; }
+  .slate { padding-inline-start: 0.85rem; min-width: 0; }
+  .stack-line { gap: 0.35rem; }
+  .stack-line li {
+    min-height: 1.85rem;
+    padding: 0.2rem 0.62rem;
+    font-size: 0.84rem;
+  }
   .storyboard-strip { gap: 0.55rem; }
   .frame { aspect-ratio: 16 / 11; min-height: 0; }
   .gels { grid-template-columns: 1fr 1fr; }

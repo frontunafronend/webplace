@@ -761,7 +761,7 @@ html[dir="rtl"] .room:nth-child(even) .room-copy { order: 1; }
 }
 
 @media print {
-  .binder, .prod-bar, .btn, .lang-toggle { display: none !important; }
+  .binder, .prod-bar, .btn, .lang-toggle, .to-top { display: none !important; }
   .sheet, .foot { margin: 0; }
   .scene { break-inside: avoid; }
   body { background: white; }

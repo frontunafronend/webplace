@@ -106,6 +106,7 @@ body {
 .slate::before { background: var(--accent); }
 .slate h1,
 .display,
+.scene-qa .display,
 .shot-copy h3,
 .room-copy h3,
 .year,
