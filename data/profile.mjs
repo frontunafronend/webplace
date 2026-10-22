@@ -37,7 +37,7 @@ export const profile = {
     name: t("Amir Cabili", "אמיר קבילי"),
     headline: t(
       "Front-End Tech Lead · Senior Angular Engineer · AI / LLM Integration",
-      "ראש צוות פרונט-אנד · מהנדס Angular בכיר · אינטגרציית AI / LLM"
+      "מפתח פרונט-אנד בכיר (Tech Lead) · Angular · אינטגרציית AI / LLM"
     ),
     location: t("Tel Aviv, Israel", "תל אביב, ישראל"),
     phone: "+972-54-690-2616",
@@ -55,7 +55,7 @@ export const profile = {
 
   summary: t(
     "Front-end tech lead with 9+ years of production Angular, from AngularJS to Angular 22, across cybersecurity, fintech and banking (HUB Security, eToro, Discount Bank). Lead a 4-engineer team and shipped LLM-powered workflows that cut new-screen delivery time by ~30%. Founder of Frontuna.com, a solo-built AI UI generator for 4 frameworks with 500+ users and 5,000+ generations.",
-    "ראש צוות פרונט-אנד עם 9+ שנות Angular בייצור, מ-AngularJS ועד Angular 22, בתחומי סייבר, פינטק ובנקאות (HUB Security, eToro, בנק דיסקונט). מוביל צוות של 4 מהנדסים, ומסרתי תהליכי עבודה מבוססי LLM שקיצרו את זמן המסירה של מסך חדש בכ-30%. מייסד Frontuna.com, מחולל ממשקים מבוסס AI ל-4 פריימוורקים שבניתי לבד, עם 500+ משתמשים ו-5,000+ יצירות."
+    "מפתח פרונט-אנד בכיר (Tech Lead) עם 9+ שנות Angular בייצור, מ-AngularJS ועד Angular 22, בתחומי סייבר, פינטק ובנקאות (HUB Security, eToro, בנק דיסקונט). מנחה צוות של 4 מהנדסים, ומסרתי תהליכי עבודה מבוססי LLM שקיצרו את זמן המסירה של מסך חדש בכ-30%. מייסד Frontuna.com, מחולל ממשקים מבוסס AI ל-4 פריימוורקים שבניתי לבד, עם 500+ משתמשים ו-5,000+ יצירות."
   ),
 
   /** Headline KPI cards */
@@ -408,7 +408,7 @@ export const profile = {
       q: t("What does tech-lead work include for you?", "מה כוללת עבודת ה-Tech Lead שלך?"),
       a: t(
         "I lead front-end architecture for 3 B2B applications and a team of 4 engineers on bi-weekly releases. I mentor 3 developers through 30+ code reviews a month and own the front-end decisions — state management, the shared component library and the LLM integration pattern — working with product, design, back-end and security on every release.",
-        "אני מוביל את ארכיטקטורת הפרונט-אנד של 3 יישומי B2B וצוות של 4 מהנדסים בשחרורים דו-שבועיים. אני מנטור ל-3 מפתחים דרך 30+ סקירות קוד בחודש, ואחראי על החלטות הפרונט-אנד — ניהול מצב, ספריית הקומפוננטות המשותפת ותבנית אינטגרציית ה-LLM — בשיתוף מוצר, עיצוב, בק-אנד ואבטחה בכל שחרור."
+        "אני מוביל את ארכיטקטורת הפרונט-אנד של 3 יישומי B2B ומנחה צוות של 4 מהנדסים בשחרורים דו-שבועיים. אני מנטור ל-3 מפתחים דרך 30+ סקירות קוד בחודש, ואחראי על החלטות הפרונט-אנד — ניהול מצב, ספריית הקומפוננטות המשותפת ותבנית אינטגרציית ה-LLM — בשיתוף מוצר, עיצוב, בק-אנד ואבטחה בכל שחרור."
       ),
     },
     {
@@ -509,11 +509,11 @@ export const ui = {
     languages: t("Languages", "שפות"),
   },
   meta: {
-    title: t("Amir Cabili — Front-End Tech Lead · Angular 22 · AI Integration", "אמיר קבילי — ראש צוות פרונט-אנד · Angular 22 · אינטגרציית AI"),
+    title: t("Amir Cabili — Front-End Tech Lead · Angular 22 · AI Integration", "אמיר קבילי — מפתח פרונט-אנד בכיר (Tech Lead) · Angular 22 · אינטגרציית AI"),
     description: t(
       "Front-end tech lead, 9+ years of production Angular (AngularJS to Angular 22) for cybersecurity, fintech and banking. AI/LLM integration. Tel Aviv.",
-      "ראש צוות פרונט-אנד, 9+ שנות Angular בייצור (מ-AngularJS ועד Angular 22) בסייבר, פינטק ובנקאות. אינטגרציית AI/LLM. תל אביב."
+      "מפתח פרונט-אנד בכיר (Tech Lead), 9+ שנות Angular בייצור (מ-AngularJS ועד Angular 22) בסייבר, פינטק ובנקאות. אינטגרציית AI/LLM. תל אביב."
     ),
-    ogImageAlt: t("Amir Cabili — Front-End Tech Lead, Angular 22, AI integration", "אמיר קבילי — ראש צוות פרונט-אנד, Angular 22, אינטגרציית AI"),
+    ogImageAlt: t("Amir Cabili — Front-End Tech Lead, Angular 22, AI integration", "אמיר קבילי — מפתח פרונט-אנד בכיר (Tech Lead), Angular 22, אינטגרציית AI"),
   },
 };
