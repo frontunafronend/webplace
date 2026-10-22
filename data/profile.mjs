@@ -302,6 +302,32 @@ export const profile = {
     ],
   },
 
+  /** "By the numbers" panels per employer. Every value is from the CV bullets. */
+  companyNumbers: [
+    {
+      id: "hub",
+      h: t("HUB Cyber Security by the numbers", "HUB Cyber Security במספרים"),
+      lede: t("Senior Front-End Developer (Tech Lead) · Apr 2024 – Present", "מפתח פרונט-אנד בכיר (Tech Lead) · אפריל 2024 – היום"),
+      tiles: [
+        { value: "3", label: t("B2B security web applications I lead front-end architecture for", "יישומי ווב לאבטחת מידע ב-B2B שאני מוביל בהם את ארכיטקטורת הפרונט-אנד") },
+        { value: "~40%", label: t("less manual review time with the AI-integration layer", "פחות זמן בדיקה ידנית בזכות שכבת אינטגרציית ה-AI") },
+        { value: "~35%", label: t("faster page load after migrating 15+ modules to Signals", "טעינת עמוד מהירה יותר אחרי העברת 15+ מודולים ל-Signals") },
+        { value: "~30%", label: t("fewer production UI defects with CI quality gates", "פחות תקלות ממשק בייצור בזכות שערי איכות ב-CI") },
+      ],
+    },
+    {
+      id: "bank",
+      h: t("Discount Bank by the numbers", "בנק דיסקונט במספרים"),
+      lede: t("Senior Web Client Developer at Aman Group · Jul 2017 – Mar 2022 · customer-facing web app used by hundreds of thousands of customers", "מפתח צד-לקוח בכיר ב-Aman Group · יולי 2017 – מרץ 2022 · יישום ווב ללקוחות המשמש מאות אלפי לקוחות"),
+      tiles: [
+        { value: "10+", label: t("major releases, AngularJS 1.5 → Angular 12", "שחרורים מרכזיים, [[AngularJS 1.5 → Angular 12]]") },
+        { value: "40+", label: t("screens migrated from AngularJS to Angular", "מסכים שהועברו מ-AngularJS ל-Angular") },
+        { value: "0", label: t("critical production incidents during the migration", "תקלות קריטיות בייצור במהלך ההגירה") },
+        { value: "~30%", label: t("faster load time after the migration", "זמן טעינה מהיר יותר אחרי ההגירה") },
+      ],
+    },
+  ],
+
   frontuna: {
     tiles: [
       { value: "500+", label: t("registered users", "משתמשים רשומים") },
@@ -452,6 +478,7 @@ export const ui = {
     impact: t("Impact", "השפעה"),
     story: t("Experience", "ניסיון"),
     journey: t("Career data", "נתוני קריירה"),
+    numbers: t("Results", "תוצאות"),
     ai: t("AI integration", "אינטגרציית AI"),
     frontuna: t("Frontuna", "Frontuna"),
     skills: t("Skills", "מיומנויות"),

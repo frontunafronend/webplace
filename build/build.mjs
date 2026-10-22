@@ -6,11 +6,22 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { profile as P, ui as U } from "../data/profile.mjs";
+import { icon } from "./icons.mjs";
+
+const H2 = (ic, inner) => `<h2 class="h-ic"><span class="badge">${icon(ic)}</span><span>${inner}</span></h2>`;
+const KPI_ICONS = ["code", "users", "globe", "zap", "shieldCheck", "rocket"];
+const COMPANY_ICONS = { hub: { h: "shield", tiles: ["monitor", "sparkles", "gauge", "bug"] }, bank: { h: "bank", tiles: ["refresh", "layers", "shieldCheck", "gauge"] } };
+const FRONTUNA_ICONS = ["users", "box", "code", "server"];
+const NODE_ICONS = { Vercel: "cloud", "Google Cloud Run": "server", "Neon PostgreSQL": "database", Paddle: "card", Resend: "send", "Vercel Blob": "box" };
+const PROJECT_ICONS = ["globe", "layers"];
+const SKILL_ICONS = ["code", "sparkles", "check", "server", "team"];
+const AI_ICONS = ["shield", "layers", "monitor", "refresh", "shieldCheck", "eye", "cpu"];
+const tileIcon = (name) => `<span class="tile-ic">${icon(name)}</span>`;
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = P.identity.siteUrl.replace(/\/$/, "");
 const BUILD_DATE = new Date();
-const ASSET_V = "1"; // bump to bust caches for css/js
+const ASSET_V = "2"; // bump to bust caches for css/js
 
 // ---------- text helpers ----------
 
@@ -60,7 +71,7 @@ const pct = (v, max) => `${Math.max(2, Math.round((v / max) * 1000) / 10)}%`;
 
 // ---------- sections ----------
 
-const SECTIONS = ["cover", "impact", "story", "journey", "ai", "frontuna", "skills", "qa", "call"];
+const SECTIONS = ["cover", "impact", "story", "journey", "numbers", "ai", "frontuna", "skills", "qa", "call"];
 
 function head(lang) {
   const he = lang === "he";
@@ -169,7 +180,7 @@ function hero(lang) {
         <ul class="kpis" aria-label="${attr(U.kpiAria, lang)}">
           ${P.kpis
             .map(
-              (k) => `<li class="kpi"><p class="kpi-value"><bdi>${esc(k.value)}</bdi>${k.unit[lang] ? ` <span class="kpi-unit">${html(k.unit, lang)}</span>` : ""}</p><p class="kpi-label">${html(k.label, lang)}</p></li>`
+              (k, i) => `<li class="kpi">${tileIcon(KPI_ICONS[i])}<p class="kpi-value"><bdi>${esc(k.value)}</bdi>${k.unit[lang] ? ` <span class="kpi-unit">${html(k.unit, lang)}</span>` : ""}</p><p class="kpi-label">${html(k.label, lang)}</p></li>`
             )
             .join("\n          ")}
         </ul>
@@ -204,7 +215,7 @@ function impact(lang) {
     .join("");
   return `
     <section class="sec" id="impact" data-title="${attr(U.nav.impact, lang)}">
-      <h2>${html(L.h, lang)}</h2>
+      ${H2("chart", html(L.h, lang))}
       <p class="lede">${html(L.lede, lang)}</p>
       <figure class="chart chart-impact" data-reveal>
         <div class="legend" aria-hidden="true"><span class="key key-before">${html(L.before, lang)}</span><span class="key key-after">${html(L.after, lang)}</span></div>
@@ -238,7 +249,7 @@ function experience(lang) {
     .join("");
   return `
     <section class="sec" id="story" data-title="${attr(U.nav.story, lang)}">
-      <h2>${html(U.story.h, lang)}</h2>
+      ${H2("briefcase", html(U.story.h, lang))}
       <ol class="roles">${roles}
       </ol>
       <p class="earlier"><strong>${html(U.story.earlier, lang)}:</strong> ${html(P.earlierRoles, lang)}</p>
@@ -264,14 +275,14 @@ function journey(lang) {
     <section class="sec" id="journey" data-title="${attr(U.nav.journey, lang)}">
       <div class="duo">
         <figure class="chart" data-reveal>
-          <h2>${html(J.h, lang)}</h2>
+          ${H2("trend", html(J.h, lang))}
           <p class="lede">${html(J.lede, lang)}</p>
           <ol class="journey">
             ${P.angularJourney.map((p) => `<li><span class="dot" aria-hidden="true"></span><p class="j-ver"><bdi dir="ltr">${esc(p.version)}</bdi></p><p class="j-co">${html(p.company, lang)}</p></li>`).join("\n            ")}
           </ol>
         </figure>
         <figure class="chart" data-reveal>
-          <h2>${html(J.domainH, lang)}</h2>
+          ${H2("target", html(J.domainH, lang))}
           <p class="lede">${html(J.domainLede, lang)}</p>
           <div class="dom" aria-hidden="true">
           ${bars}
@@ -287,16 +298,33 @@ function journey(lang) {
     </section>`;
 }
 
+function numbers(lang) {
+  return `
+    <section class="sec" id="numbers" data-title="${attr(U.nav.numbers, lang)}">
+      ${P.companyNumbers
+        .map(
+          (c) => `<div class="company-numbers" id="numbers-${c.id}">
+        ${H2(COMPANY_ICONS[c.id].h, html(c.h, lang))}
+        <p class="lede">${html(c.lede, lang)}</p>
+        <ul class="tiles">
+          ${c.tiles.map((x, i) => `<li>${tileIcon(COMPANY_ICONS[c.id].tiles[i])}<p class="kpi-value"><bdi>${esc(x.value)}</bdi></p><p class="kpi-label">${html(x.label, lang)}</p></li>`).join("\n          ")}
+        </ul>
+      </div>`
+        )
+        .join("\n      ")}
+    </section>`;
+}
+
 function ai(lang) {
   return `
     <section class="sec" id="ai" data-title="${attr(U.nav.ai, lang)}">
-      <h2>${html(U.ai.h, lang)}</h2>
+      ${H2("sparkles", html(U.ai.h, lang))}
       <div class="ai">
         <div class="ai-copy">
           ${P.ai.paragraphs.map((p) => `<p>${html(p, lang)}</p>`).join("\n          ")}
         </div>
         <ul class="ai-points">
-          ${P.ai.points.map((p) => `<li><strong>${html(p.title, lang)}</strong> ${html(p.text, lang)}</li>`).join("\n          ")}
+          ${P.ai.points.map((p, i) => `<li><span class="tile-ic">${icon(AI_ICONS[i])}</span><div><strong>${html(p.title, lang)}</strong> ${html(p.text, lang)}</div></li>`).join("\n          ")}
         </ul>
       </div>
     </section>`;
@@ -305,13 +333,13 @@ function ai(lang) {
 function frontuna(lang) {
   const F = P.frontuna;
   const A = F.architecture;
-  const node = (n) => `<div class="node"><p class="node-name" dir="ltr">${esc(n.name)}</p><p class="node-role">${html(n.role, lang)}</p></div>`;
+  const node = (n) => `<div class="node"><span class="node-ic">${icon(NODE_ICONS[n.name])}</span><p class="node-name" dir="ltr">${esc(n.name)}</p><p class="node-role">${html(n.role, lang)}</p></div>`;
   return `
     <section class="sec" id="frontuna" data-title="${attr(U.nav.frontuna, lang)}">
-      <h2>${html(U.frontuna.h, lang)}</h2>
+      ${H2("rocket", html(U.frontuna.h, lang))}
       <p class="lede">${html(U.frontuna.lede, lang)} <a href="${P.identity.links.frontuna.url}" target="_blank" rel="noopener">${html(U.frontuna.visit, lang)}</a></p>
       <ul class="tiles">
-        ${F.tiles.map((x) => `<li><p class="kpi-value"><bdi>${esc(x.value)}</bdi></p><p class="kpi-label">${html(x.label, lang)}</p></li>`).join("\n        ")}
+        ${F.tiles.map((x, i) => `<li>${tileIcon(FRONTUNA_ICONS[i])}<p class="kpi-value"><bdi>${esc(x.value)}</bdi></p><p class="kpi-label">${html(x.label, lang)}</p></li>`).join("\n        ")}
       </ul>
       <figure class="chart arch-wrap">
         <h3>${html(U.frontuna.archH, lang)}</h3>
@@ -326,11 +354,11 @@ function frontuna(lang) {
 function projects(lang) {
   return `
     <section class="sec" id="projects" data-title="${attr(U.nav.frontuna, lang)}">
-      <h2>${html(U.projects.h, lang)}</h2>
+      ${H2("folder", html(U.projects.h, lang))}
       <div class="cards">
         ${P.projects
           .map(
-            (p) => `<article class="card"><h3><a href="${p.url}" target="_blank" rel="noopener">${html(p.name, lang)}</a></h3><p class="card-meta">${html(p.meta, lang)}</p><p>${html(p.text, lang)}</p></article>`
+            (p, i) => `<article class="card"><span class="tile-ic">${icon(PROJECT_ICONS[i])}</span><h3><a href="${p.url}" target="_blank" rel="noopener">${html(p.name, lang)}</a></h3><p class="card-meta">${html(p.meta, lang)}</p><p>${html(p.text, lang)}</p></article>`
           )
           .join("\n        ")}
       </div>
@@ -340,17 +368,17 @@ function projects(lang) {
 function skills(lang) {
   return `
     <section class="sec" id="skills" data-title="${attr(U.nav.skills, lang)}">
-      <h2>${html(U.skills.h, lang)}</h2>
+      ${H2("layers", html(U.skills.h, lang))}
       <div class="skill-grid">
         ${P.skills
           .map(
-            (g) => `<div class="skill-group"><h3>${html(g.group, lang)}</h3><ul class="chips">${g.items.map((s) => `<li dir="ltr">${esc(s)}</li>`).join("")}</ul></div>`
+            (g, i) => `<div class="skill-group"><h3 class="h3-ic">${icon(SKILL_ICONS[i])}<span>${html(g.group, lang)}</span></h3><ul class="chips">${g.items.map((s) => `<li dir="ltr">${esc(s)}</li>`).join("")}</ul></div>`
           )
           .join("\n        ")}
       </div>
     </section>
     <section class="sec" id="certs" data-title="${attr(U.nav.skills, lang)}">
-      <h2>${html(U.certs.h, lang)}</h2>
+      ${H2("award", html(U.certs.h, lang))}
       <ul class="certs">
         ${P.certifications
           .map((c) => `<li><strong>${html(c.title, lang)}</strong><span>${html(c.school, lang)}${c.year ? ` · ${esc(c.year)}` : ""}</span></li>`)
@@ -362,7 +390,7 @@ function skills(lang) {
 function faq(lang) {
   return `
     <section class="sec" id="qa" data-title="${attr(U.nav.qa, lang)}">
-      <h2>${html(U.qa.h, lang)}</h2>
+      ${H2("help", html(U.qa.h, lang))}
       <div class="qa">
         ${P.faq
           .map(
@@ -382,7 +410,7 @@ function contact(lang) {
   const subject = encodeURIComponent(plain(U.mailSubject, lang));
   return `
     <section class="sec sec-call" id="call" data-title="${attr(U.nav.call, lang)}">
-      <h2>${html(C.h, lang)}</h2>
+      ${H2("mail", html(C.h, lang))}
       <p class="lede">${html(C.lede, lang)}</p>
       <div class="call">
         <dl class="call-list">
@@ -405,7 +433,7 @@ function contact(lang) {
 function page(lang) {
   return `${head(lang)}
 <body>${header(lang)}
-  <main class="sheet" id="main">${hero(lang)}${impact(lang)}${experience(lang)}${journey(lang)}${ai(lang)}${frontuna(lang)}${projects(lang)}${skills(lang)}${faq(lang)}${contact(lang)}
+  <main class="sheet" id="main">${hero(lang)}${impact(lang)}${experience(lang)}${journey(lang)}${numbers(lang)}${ai(lang)}${frontuna(lang)}${projects(lang)}${skills(lang)}${faq(lang)}${contact(lang)}
   </main>
   <footer class="foot">
     <p>© ${BUILD_DATE.getFullYear()} ${html(P.identity.name, lang)} · webplace.co.il</p>
