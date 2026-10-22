@@ -21,7 +21,7 @@ const tileIcon = (name) => `<span class="tile-ic">${icon(name)}</span>`;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = P.identity.siteUrl.replace(/\/$/, "");
 const BUILD_DATE = new Date();
-const ASSET_V = "2"; // bump to bust caches for css/js
+const ASSET_V = "3"; // bump to bust caches for css/js
 
 // ---------- text helpers ----------
 

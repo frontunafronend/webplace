@@ -6,16 +6,30 @@
     .map((a) => document.getElementById(a.getAttribute("href").slice(1)))
     .filter(Boolean);
 
+  const rail = document.querySelector(".rail");
+  let currentId = null;
+
+  // Keep the active tab visible in the horizontal mobile rail.
+  // Only the rail scrolls sideways; never call scrollIntoView here, because it also
+  // scrolls the page and cancels the user's touch/momentum scrolling on mobile.
+  const revealTab = (tab) => {
+    if (!rail || rail.scrollWidth <= rail.clientWidth) return;
+    const r = rail.getBoundingClientRect();
+    const t = tab.getBoundingClientRect();
+    if (t.left >= r.left && t.right <= r.right) return;
+    rail.scrollLeft += t.left - r.left - (r.width - t.width) / 2;
+  };
+
   const setCurrent = (id) => {
+    if (id === currentId) return;
     const sec = document.getElementById(id);
     if (!sec) return;
+    currentId = id;
     if (counter && sec.dataset.title) counter.textContent = sec.dataset.title;
     tabs.forEach((tab) => {
       const on = tab.getAttribute("href") === `#${id}`;
       tab.setAttribute("aria-current", on ? "true" : "false");
-      if (on && tab.parentElement.scrollWidth > tab.parentElement.clientWidth) {
-        tab.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "auto" });
-      }
+      if (on) revealTab(tab);
     });
   };
 

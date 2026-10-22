@@ -700,6 +700,11 @@ html[dir="rtl"] .ticks span { transform: translateX(50%); }
   .rail a { flex: 0 0 auto; white-space: nowrap; border-inline-start: 0; border-bottom: 2px solid transparent; border-radius: 6px; }
   .rail a[aria-current="true"] { border-bottom-color: var(--accent); }
   html { scroll-padding-top: calc(var(--bar-h) + 3.4rem); }
+  /* Fixed backgrounds and stacked blur filters make mobile scrolling janky. */
+  body { background-attachment: scroll; }
+  .bar, .rail { backdrop-filter: none; }
+  .bar { background: rgba(13, 21, 32, 0.98); }
+  .kpi:hover, .tiles li:hover { transform: none; }
   .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .imp-row { grid-template-columns: minmax(0, 1fr); }
 }
