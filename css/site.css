@@ -436,6 +436,11 @@ html[dir="rtl"] .journey::before { background: linear-gradient(270deg, var(--bef
 .journey li:last-child .dot { background: var(--brass); border-color: var(--brass); }
 .j-ver { font-weight: 700; color: var(--heading); font-size: 0.92rem; line-height: 1.25; }
 .j-co { font-size: 0.8rem; color: var(--muted); line-height: 1.3; margin-top: 0.2rem; }
+.journey-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.journey-3 li { padding-inline-end: 0.9rem; }
+.j-note { font-size: 0.82rem; color: var(--soft); line-height: 1.4; margin-top: 0.35rem; }
+.chart-wide { grid-column: 1 / -1; }
+.chart-wide .dom { max-width: 52rem; }
 
 .dom { display: grid; gap: 0.85rem; }
 .dom-row {
@@ -717,7 +722,8 @@ html[dir="rtl"] .ticks span { transform: translateX(50%); }
   .journey::before { top: 0.6rem; bottom: 0.6rem; inset-inline-start: 0.4rem; inset-inline-end: auto; width: 2px; height: auto; background: linear-gradient(180deg, var(--before), var(--accent-2)); }
   html[dir="rtl"] .journey::before { background: linear-gradient(180deg, var(--before), var(--accent-2)); }
   .journey li { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr); column-gap: 0.6rem; align-items: baseline; }
-  .journey .dot { grid-row: span 2; margin: 0.25rem 0 0; }
+  .journey .dot { grid-row: span 3; margin: 0.25rem 0 0; }
+  .journey .j-ver, .journey .j-co, .journey .j-note { grid-column: 2; }
   .arch-flow { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .arrow { width: 2px; height: 1.4rem; margin: 0 auto; }
   .arrow::after { inset-inline-end: auto; top: auto; bottom: -1px; left: -4px; border: 5px solid transparent; border-top: 7px solid var(--accent); border-bottom: 0; }

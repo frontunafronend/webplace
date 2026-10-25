@@ -21,7 +21,7 @@ const tileIcon = (name) => `<span class="tile-ic">${icon(name)}</span>`;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = P.identity.siteUrl.replace(/\/$/, "");
 const BUILD_DATE = new Date();
-const ASSET_V = "3"; // bump to bust caches for css/js
+const ASSET_V = "4"; // bump to bust caches for css/js
 
 // ---------- text helpers ----------
 
@@ -282,6 +282,13 @@ function journey(lang) {
           </ol>
         </figure>
         <figure class="chart" data-reveal>
+          ${H2("code", html(J.reactH, lang))}
+          <p class="lede">${html(J.reactLede, lang)}</p>
+          <ol class="journey journey-3">
+            ${P.reactJourney.map((p) => `<li><span class="dot" aria-hidden="true"></span><p class="j-ver"><bdi dir="ltr">${esc(p.tech)}</bdi></p><p class="j-co">${html(p.where, lang)} · ${esc(p.when)}</p><p class="j-note">${html(p.note, lang)}</p></li>`).join("\n            ")}
+          </ol>
+        </figure>
+        <figure class="chart chart-wide" data-reveal>
           ${H2("target", html(J.domainH, lang))}
           <p class="lede">${html(J.domainLede, lang)}</p>
           <div class="dom" aria-hidden="true">

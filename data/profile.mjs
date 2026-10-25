@@ -127,6 +127,28 @@ export const profile = {
     { version: "Angular 22", company: t("HUB Security", "HUB Security") },
   ],
 
+  /** Chart 2b: React, Next.js & Vue. Only CV-backed milestones, no year counts. */
+  reactJourney: [
+    {
+      tech: "React · Node.js",
+      where: t("MERN certification, Yaniv Arad College", "הסמכת MERN, מכללת יניב ארד"),
+      when: "2023",
+      note: t("Certified Full-Stack Developer: MongoDB, Express, React, Node.js", "מפתח Full-Stack מוסמך: MongoDB, Express, React, Node.js"),
+    },
+    {
+      tech: "React · Vue",
+      where: t("Frontuna", "Frontuna"),
+      when: "2025",
+      note: t("My SaaS generates production components in React and Vue, alongside Angular and Svelte", "ה-SaaS שלי מייצר קומפוננטות לייצור ב-React וב-Vue, לצד Angular ו-Svelte"),
+    },
+    {
+      tech: "Next.js 14",
+      where: t("MammyZone", "MammyZone"),
+      when: "2026",
+      note: t("Full homepage and App Router scaffold with TypeScript, Tailwind and i18n", "דף בית מלא ושלד App Router עם TypeScript, ‏Tailwind ו-i18n"),
+    },
+  ],
+
   /** Chart 3: years per domain, computed from role dates at build time */
   domains: [
     { label: t("Banking", "בנקאות"), detail: t("Aman Group · Discount Bank", "Aman Group · בנק דיסקונט"), roleId: "aman" },
@@ -504,6 +526,8 @@ export const ui = {
   journey: {
     h: t("From AngularJS to Angular 22", "מ-AngularJS ועד Angular 22"),
     lede: t("Angular versions I shipped to production, and where.", "גרסאות Angular שמסרתי לייצור, והיכן."),
+    reactH: t("React, Next.js & Vue", "React, ‏Next.js ו-Vue"),
+    reactLede: t("Where I've built with React, Next.js and Vue.", "היכן בניתי עם React, ‏Next.js ו-Vue."),
     domainH: t("9+ years across regulated industries", "9+ שנים בתעשיות מפוקחות"),
     domainLede: t("Years per domain, from role dates.", "שנים לפי תחום, לפי תאריכי התפקידים."),
     years: t("years", "שנים"),
