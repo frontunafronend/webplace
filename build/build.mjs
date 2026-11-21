@@ -21,7 +21,7 @@ const tileIcon = (name) => `<span class="tile-ic">${icon(name)}</span>`;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = P.identity.siteUrl.replace(/\/$/, "");
 const BUILD_DATE = new Date();
-const ASSET_V = "4"; // bump to bust caches for css/js
+const ASSET_V = "5"; // bump to bust caches for css/js
 
 // ---------- text helpers ----------
 
@@ -164,7 +164,11 @@ function hero(lang) {
         <div class="hero-copy">
           <p class="place">${html(id.location, lang)} · ${html(id.languages, lang)}</p>
           <h1>${html(id.name, lang)}</h1>
-          <p class="headline">${html(id.headline, lang)}</p>
+          <p class="headline">${html(id.headline, lang)} <span class="headline-note">${html(id.headlineNote, lang)}</span></p>
+          <dl class="stack">
+            <div class="stack-row"><dt>${html(U.stackFront, lang)}</dt><dd><ul>${P.heroStack.front.map((s) => `<li dir="ltr">${esc(s)}</li>`).join("")}</ul></dd></div>
+            <div class="stack-row stack-back"><dt>${html(U.stackBack, lang)}</dt><dd><ul>${P.heroStack.back.map((s) => `<li dir="ltr">${esc(s)}</li>`).join("")}</ul></dd></div>
+          </dl>
           <p class="summary">${html(P.summary, lang)}</p>
           <div class="actions">
             <a class="btn btn-primary" href="/${id.cvFile}" download>${html(U.cvButton, lang)}</a>

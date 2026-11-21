@@ -276,6 +276,37 @@ html[lang="he"] .hero h1 { letter-spacing: 0; }
   margin-bottom: 1rem;
   max-width: 46ch;
 }
+.headline-note {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--accent);
+}
+.stack { display: grid; gap: 0.45rem; margin-bottom: 1.15rem; }
+.stack-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 0.7rem; }
+.stack dt {
+  flex: 0 0 8.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+html[lang="he"] .stack dt { letter-spacing: 0; text-transform: none; font-size: 0.85rem; }
+.stack dd { flex: 1 1 18rem; }
+.stack ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.stack li {
+  font-size: 0.84rem;
+  line-height: 1.3;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+}
+.stack-back li { border-color: var(--accent); }
+@media (max-width: 560px) { .stack dt { flex-basis: 100%; } }
 .summary { max-width: 60ch; margin-bottom: 1.35rem; }
 .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 .links {
